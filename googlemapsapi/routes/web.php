@@ -19,4 +19,3 @@ Route::get('googlemap', 'MapController@map');
 Route::get('googlemap/direction', 'MapController@direction');
 
 
-Route::get('/{car}','GmapsController@showCar');
