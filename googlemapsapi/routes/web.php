@@ -14,8 +14,8 @@
 Route::get('/', 'MapController@map' );
 
 
-Route::get('googlemap', 'MapController@map');
-Route::get('googlemap/direction', 'MapController@direction');
+// Route::get('googlemap', 'MapController@map');
+// Route::get('googlemap/direction', 'MapController@direction');
 
 
 
