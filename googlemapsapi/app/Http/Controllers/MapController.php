@@ -55,4 +55,7 @@ class MapController extends Controller
         $map = $gmap->create_map();
         return view('map',compact('map'));
     }
+    // public function showMap(){
+    //     return view('map'); 
+    // }
 }

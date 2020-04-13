@@ -11,11 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MapController@map' );
+
 
 Route::get('googlemap', 'MapController@map');
 Route::get('googlemap/direction', 'MapController@direction');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
