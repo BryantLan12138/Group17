@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,15 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'MapController@map');
 
-Route::get('/', 'MapController@map' );
-
-
-// Route::get('googlemap', 'MapController@map');
-// Route::get('googlemap/direction', 'MapController@direction');
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('googlemap', 'MapController@map');
