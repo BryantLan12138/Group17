@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
+use Illuminate\Support\Facades\DB;
+use \App\Car;
 
 class MapController extends Controller
 {
@@ -25,35 +27,21 @@ class MapController extends Controller
         $gmap = new GMaps();
         $gmap->initialize($config);
 
-
-        $marker['position'] = 'Metro Hobbies, Bourke Street, Melbourne, au';
-        $marker['infowindow_content'] = 'Car Park 1';
-        $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-
-        $gmap->add_marker($marker);
-
-        $marker['position'] = 'Queens Domain, 12 Queens Rd, Melbourne,au';
-        $marker['infowindow_content'] = 'Car Park 2';
-        $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-        $marker['draggable'] = TRUE;
-        $marker['animation'] = 'DROP';
-
-        $gmap->add_marker($marker);
-
-        $marker['position'] = 'Hearns Hobbies, Melbourne, au';
-        $marker['infowindow_content'] = 'Car Park 3';
-        $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-
-        $gmap->add_marker($marker);
-
-        $marker['position'] = 'Minotaur, Elizabeth Street, Melbourne, au';
-        $marker['infowindow_content'] = 'Car Park 4';
-        $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-
-        $gmap->add_marker($marker);
+        //show carpark markers on map,  retrive data from carpark table in database
+        $dbcarpark = DB::table('carparks');
+        $data = $dbcarpark -> get();
+        foreach($data as $key => $value){
+            $marker['position'] = $value -> address;
+            $marker['infowindow_content'] = $value -> carpark.' [Vacancy:'.$value -> vacancy.']';
+            $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
+            $marker['draggable'] = TRUE;
+            $marker['animation'] = 'DROP';
+            $gmap->add_marker($marker);
+         }
 
         $map = $gmap->create_map();
-        return view('map',compact('map'));
+
+        return view('map', compact('map'))->with('cars', Car::all());
     }
     // public function showMap(){
     //     return view('map'); 
