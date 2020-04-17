@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
+use App\Gmaps_geocache;
 
 class MapController extends Controller
 {
@@ -53,9 +54,7 @@ class MapController extends Controller
         $gmap->add_marker($marker);
 
         $map = $gmap->create_map();
-        return view('map',compact('map'));
+        return view('map',compact('map'))->with('cars', Gmaps_geocache::all());
     }
-    // public function showMap(){
-    //     return view('map'); 
-    // }
+   
 }
