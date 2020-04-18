@@ -1,5 +1,25 @@
 @extends('layouts.app')
 @section('content')
+<!-- div for order -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    Orders  
+                    <button class="btn btn-primary btn-sm float-right">Manage</button>
+                    <div class="card-body">
+                        <ul class="list-group">
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><br>
+
 <!-- div for car -->
 <div class="container">
     <div class="row justify-content-center">
@@ -78,8 +98,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 @endsection
