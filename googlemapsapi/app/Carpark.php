@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carpark extends Model
 {
-    //
+    public $table = 'carparks';  //
 }
