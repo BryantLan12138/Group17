@@ -12,6 +12,7 @@
                         <ul class="list-group">
                             @foreach($cars as $car)
                             <li class="list-group-item"> 
+                                <img src="{{ asset('image/'.$car -> image)}}" width="100px" height="auto" alt="{{$car -> image}}">&nbsp;&nbsp;&nbsp;&nbsp;
                                 Licenseplate: {{$car -> licenseplate}}&nbsp;&nbsp;&nbsp;&nbsp;
                                 Make: {{$car -> make}}&nbsp;&nbsp;&nbsp;&nbsp;
                                 Model: {{$car -> model}}

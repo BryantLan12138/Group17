@@ -16,16 +16,16 @@ class MapSeeder extends Seeder
     {
         DB::table('cars')->delete();
         $car = [
-            ['licenseplate' => 'ABC111','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 1'],
-            ['licenseplate' => 'ABC222','make' => 'maketest2','model' => 'modeltest2','carpark' => 'Car Park 2'],
-            ['licenseplate' => 'ABC333','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 2'],
-            ['licenseplate' => 'ABC444','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 2'],
-            ['licenseplate' => 'ABC555','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 3'],
-            ['licenseplate' => 'ABC666','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 3'],
-            ['licenseplate' => 'ABC777','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 4'],
-            ['licenseplate' => 'ABC888','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 5'],
-            ['licenseplate' => 'ABC999','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 5'],
-            ['licenseplate' => 'ABC000','make' => 'maketest1','model' => 'modeltest1','carpark' => 'Car Park 5'],
+            ['licenseplate' => 'CAR586','make' => 'Volkswagen','model' => 'Golf','carpark' => 'Car Park 1','image' => 'golf01.png'],
+            ['licenseplate' => 'CAR793','make' => 'Volkswagen','model' => 'Jetta','carpark' => 'Car Park 2','image' => 'jetta01.png'],
+            ['licenseplate' => 'CAR165','make' => 'Volkswagen','model' => 'Tiguan','carpark' => 'Car Park 2','image' => 'tiguan01.png'],
+            ['licenseplate' => 'CAR210','make' => 'Volkswagen','model' => 'Golf GTI','carpark' => 'Car Park 2','image' => 'golfgti01.png'],
+            ['licenseplate' => 'CAR019','make' => 'Ford','model' => 'Focus','carpark' => 'Car Park 3','image' => 'focus01.png'],
+            ['licenseplate' => 'CAR732','make' => 'Ford','model' => 'Taurus','carpark' => 'Car Park 3','image' => 'taurus01.png'],
+            ['licenseplate' => 'CAR859','make' => 'Ford','model' => 'Ranger','carpark' => 'Car Park 4','image' => 'ranger01.png'],
+            ['licenseplate' => 'CAR329','make' => 'Honda','model' => 'Fit','carpark' => 'Car Park 5','image' => 'fit01.png'],
+            ['licenseplate' => 'CAR482','make' => 'Honda','model' => 'Insight','carpark' => 'Car Park 5','image' => 'insight01.png'],
+            ['licenseplate' => 'CAR190','make' => 'Nissan','model' => 'Altima','carpark' => 'Car Park 5','image' => 'altima01.png'],
         ];
         Car::insert($car);
 
