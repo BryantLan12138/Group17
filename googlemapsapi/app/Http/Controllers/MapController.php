@@ -43,5 +43,11 @@ class MapController extends Controller
         $map = $gmap->create_map();
         return view('map',compact('map'))->with('cars', Car::all());
     }
+
+    public function showCars($carId)
+    {
+ 
+        return view('car_details')->with('cars',Car::find($carId));
+    }
    
 }

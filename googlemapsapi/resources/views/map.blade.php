@@ -18,14 +18,20 @@
     </div>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <ul>
-            @foreach($cars as $cars)
-            <li>
-                {{$cars->id}}{{$cars->licenseplate}}    
-            </li>
-            @endforeach
-        </ul>
+        <h1 class="text-center my-5">Car List</h1>
+        <div class="card card-default">
+            <div class="card card-body">
+            <ul class="list-group">
+                @foreach($cars as $cars)
+                <li class="list-group-item">
+                    <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">
+                       {{$cars->make}}{{$cars->model}}   
+                <a href="/{{$cars->id}}" class="btn btn-dark btn-lg">Details</a>
+                </li>
+                @endforeach
+            </ul>
+            </div>
+        </div>    
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()" style="float: left" >&#9776; Show Cars</button>    

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MapController@map' );
+Route::get('/{cars}','MapController@showCars');
 
 
 // Route::get('googlemap', 'MapController@map');
