@@ -17,12 +17,7 @@ class MapController extends Controller
         $config['map_width'] = '1000px';
         $config['scrollwheel'] = false;
         $config['geocodeCaching'] = true;
-
-        $config['directions'] = true;
-        $config['directionsDraggable'] = true;
-        $config['directionsStart'] = 'Queens Domain, 12 Queens Rd, Melbourne,au';
-        $config['directionsEnd'] = 'Metro Hobbies, Bourke Street, Melbourne, au';
-        $config['directionsDivID'] =  'directionsDiv';
+        
 
         $gmap = new GMaps();
         $gmap->initialize($config);
@@ -43,5 +38,5 @@ class MapController extends Controller
         $map = $gmap->create_map();
         return view('map',compact('map'))->with('cars', Car::all());
     }
-   
+
 }
