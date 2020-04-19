@@ -7,18 +7,6 @@
         padding: 0;
     }
 </style>
-<script>
-    function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-    function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-        }
-</script>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -185,5 +173,5 @@
                 <button class="openbtn" onclick="openNav()" style="float: left" >&#9776; Show Cars</button>    
             </div>        
 
-</body>
+    </body>
 </html>
