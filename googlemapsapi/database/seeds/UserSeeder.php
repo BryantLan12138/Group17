@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->delete();
         $user = [
-            ['name' => 'admin','email' => 'admin@example.com','password' => '$2y$10$Y0k2MBnBv.5tds9I0dFJfOSReC0pOctvpmHGE2xlxFw2DkN3jjU5q'],
+            ['name' => 'admin','email' => 'admin@example.com','password' => '$2y$10$Y0k2MBnBv.5tds9I0dFJfOSReC0pOctvpmHGE2xlxFw2DkN3jjU5q','is_admin'=>1],
         ];
         User::insert($user);
     }
