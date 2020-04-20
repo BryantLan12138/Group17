@@ -12,6 +12,15 @@
 */
 
 Route::get('/', 'MapController@map' );
+
+Auth::routes();
+
+Route::group(['middleware' => ['auth' => 'isadmin']], function(){
+    Route::get('/admin', 'AdminController@index');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/{cars}','MapController@showCars');
 
 
@@ -20,10 +29,8 @@ Route::get('/{cars}','MapController@showCars');
 
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth' => 'isadmin']], function(){
-    Route::get('/admin', 'AdminController@index');
-});
+
+
+
