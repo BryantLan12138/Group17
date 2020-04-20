@@ -22,4 +22,7 @@ Route::get('/', 'MapController@map' );
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index');
+
+Route::group(['middleware' => ['auth' => 'isadmin']], function(){
+    Route::get('/admin', 'AdminController@index');
+});
