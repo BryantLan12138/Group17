@@ -13,7 +13,7 @@
         }
 
 
-        //JS for locating user's current location 
+        //JS for locating user's current location
         var my_latlng = null;
         navigator.geolocation.getCurrentPosition(function(pos) {
         my_latlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -77,13 +77,13 @@
                 @foreach($cars as $cars)
                 <li class="list-group-item">
                     <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">
-                       {{$cars->make}}{{$cars->model}}   
+                       {{$cars->make}}{{$cars->model}}
                 <a href="/{{$cars->id}}" class="btn btn-dark btn-lg">Details</a>
                 </li>
                 @endforeach
             </ul>
             </div>
-        </div>    
+        </div>
         </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()" style="float: left" >&#9776; Show Cars</button>
