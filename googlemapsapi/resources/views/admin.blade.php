@@ -48,31 +48,6 @@
     </div>
 </div><br>
 
-<!-- div for carpark -->
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-default">
-                <div class="card-header">
-                    Carparks
-                    <button class="btn btn-primary btn-sm float-right">Manage</button>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            @foreach($carparks as $carpark)
-                            <li class="list-group-item">
-                                {{$carpark -> carpark}}&nbsp;&nbsp;&nbsp;&nbsp;
-                                Address: {{$carpark -> address}}
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div><br>
 <!-- div for user -->
 <div class="container">
     <div class="row justify-content-center">

@@ -12,7 +12,7 @@
                 </div>
             <div class="card card-body">
                 {{$cars->make}}&nbsp;&nbsp;{{$cars->model}} &nbsp;
-                <br>locate at:&nbsp;&nbsp; {{$cars->carpark}}
+                <br>locate at:&nbsp;&nbsp; {{$cars->address}}
             <img src="{{ asset('image/'.$cars -> image)}}" width="500px" height="auto" alt="{{$cars -> image}}">
             </div>
 
