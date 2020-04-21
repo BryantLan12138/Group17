@@ -24,8 +24,8 @@ class MapController extends Controller
 
 
         //Add carpark marker on map,  fetch data from carpark table in database
-        $dbcarpark = DB::table('cars');
-        $data = $dbcarpark -> get();
+        $dbcar= DB::table('cars');
+        $data = $dbcar -> get();
         foreach($data as $key => $value){
             $marker['position'] = $value -> address;
             $marker['infowindow_content'] = $value -> make;
