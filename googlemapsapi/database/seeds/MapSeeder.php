@@ -16,16 +16,16 @@ class MapSeeder extends Seeder
     {
         DB::table('cars')->delete();
         $car = [
-            ['licenseplate' => 'CAR586','make' => 'Volkswagen','model' => 'Golf','carpark' => 'Car Park 1','image' => 'golf01.png'],
-            ['licenseplate' => 'CAR793','make' => 'Volkswagen','model' => 'Jetta','carpark' => 'Car Park 2','image' => 'jetta01.png'],
-            ['licenseplate' => 'CAR165','make' => 'Volkswagen','model' => 'Tiguan','carpark' => 'Car Park 2','image' => 'tiguan01.png'],
-            ['licenseplate' => 'CAR210','make' => 'Volkswagen','model' => 'Golf GTI','carpark' => 'Car Park 2','image' => 'golfgti01.png'],
-            ['licenseplate' => 'CAR019','make' => 'Ford','model' => 'Focus','carpark' => 'Car Park 3','image' => 'focus01.png'],
-            ['licenseplate' => 'CAR732','make' => 'Ford','model' => 'Taurus','carpark' => 'Car Park 3','image' => 'taurus01.png'],
-            ['licenseplate' => 'CAR859','make' => 'Ford','model' => 'Ranger','carpark' => 'Car Park 4','image' => 'ranger01.png'],
-            ['licenseplate' => 'CAR329','make' => 'Honda','model' => 'Fit','carpark' => 'Car Park 5','image' => 'fit01.png'],
-            ['licenseplate' => 'CAR482','make' => 'Honda','model' => 'Insight','carpark' => 'Car Park 5','image' => 'insight01.png'],
-            ['licenseplate' => 'CAR190','make' => 'Nissan','model' => 'Altima','carpark' => 'Car Park 5','image' => 'altima01.png'],
+            ['licenseplate' => 'CAR586','make' => 'Volkswagen','model' => 'Golf','carpark' => 'Car Park 1','address' => 'Metro Hobbies, Bourke Street, Melbourne, au','image' => 'golf01.png'],
+            ['licenseplate' => 'CAR793','make' => 'Volkswagen','model' => 'Jetta','carpark' => 'Car Park 2','address' => 'Queens Domain, 12 Queens Rd, Melbourne,au','image' => 'jetta01.png'],
+            ['licenseplate' => 'CAR165','make' => 'Volkswagen','model' => 'Tiguan','carpark' => 'Car Park 2','address' => 'Queens Domain, 12 Queens Rd, Melbourne,au','image' => 'tiguan01.png'],
+            ['licenseplate' => 'CAR210','make' => 'Volkswagen','model' => 'Golf GTI','carpark' => 'Car Park 2','address' => 'Queens Domain, 12 Queens Rd, Melbourne,au','image' => 'golfgti01.png'],
+            ['licenseplate' => 'CAR019','make' => 'Ford','model' => 'Focus','carpark' => 'Car Park 3','address' => 'Hearns Hobbies, Melbourne, au','image' => 'focus01.png'],
+            ['licenseplate' => 'CAR732','make' => 'Ford','model' => 'Taurus','carpark' => 'Car Park 3','address' => 'Hearns Hobbies, Melbourne, au','image' => 'taurus01.png'],
+            ['licenseplate' => 'CAR859','make' => 'Ford','model' => 'Ranger','carpark' => 'Car Park 4','address' => 'Minotaur, Elizabeth Street, Melbourne, au','image' => 'ranger01.png'],
+            ['licenseplate' => 'CAR329','make' => 'Honda','model' => 'Fit','carpark' => 'Car Park 4','address' => 'Minotaur, Elizabeth Street, Melbourne, au','image' => 'fit01.png'],
+            ['licenseplate' => 'CAR482','make' => 'Honda','model' => 'Insight','carpark' => 'Car Park 4','address' => 'Minotaur, Elizabeth Street, Melbourne, au','image' => 'insight01.png'],
+            ['licenseplate' => 'CAR190','make' => 'Nissan','model' => 'Altima','carpark' => 'Car Park 4','address' => 'Minotaur, Elizabeth Street, Melbourne, au','image' => 'altima01.png'],
         ];
         Car::insert($car);
 

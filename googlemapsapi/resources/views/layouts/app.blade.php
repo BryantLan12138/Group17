@@ -74,7 +74,7 @@
         /*CSS below credit to W3school reference: https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp */
         .sidebar{
             height: 100%; 
-            width: 0; 
+            width: 0%; 
             position: fixed; 
             z-index: 1; 
             top: 0;
@@ -91,7 +91,7 @@
             font-size: 25px;
             color: #818181;
             display: block;
-            transition: 0.3s;
+            transition: 1s;
         }
     
         .sidebar a:hover {
@@ -107,6 +107,7 @@
         }
     
         .openbtn {
+            position: relative;
             font-size: 20px;
             cursor: pointer;
             background-color: #111;
@@ -136,7 +137,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Home
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

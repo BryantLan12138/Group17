@@ -19,6 +19,7 @@ class CreateCarsTable extends Migration
             $table->String('make');
             $table->String('model');
             $table->String('carpark');
+            $table->String('address');
             $table->String('image');
             $table->timestamps();
         });

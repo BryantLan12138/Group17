@@ -30,7 +30,7 @@ class MapController extends Controller
             $marker['position'] = $value -> address;
             $marker['infowindow_content'] = $value -> carpark.' [Vacancy:'.$value -> vacancy.']';
             $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-            $marker['draggable'] = TRUE;
+            $marker['draggable'] = FALSE;
             $marker['animation'] = 'DROP';
             $gmap->add_marker($marker);
          }

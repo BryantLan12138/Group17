@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth' => 'isadmin']], function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/{cars}','MapController@showCars');
+Route::get('/car_details/{cars}','MapController@showCars');
 
 
 // Route::get('googlemap', 'MapController@map');
