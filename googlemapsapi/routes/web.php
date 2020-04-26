@@ -23,7 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/car_details/{cars}','MapController@showCars');
 
+Route::get('/payment', function () {
+    return view('payment');
+});
 
+Route::get('/paypal', function () {
+    return view('paypal');
+});
 // Route::get('googlemap', 'MapController@map');
 // Route::get('googlemap/direction', 'MapController@direction');
 

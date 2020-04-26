@@ -116,7 +116,7 @@
         <button class="openbtn" onclick="openNav()" style="float: left" >&#9776; Show Cars</button>
     </div>
     <br>
-    <button onclick="getLocation();" data-role="button" style="position:relative; top:-100px;left:50px;">Get My Location</button>
+    <button onclick="getLocation();" data-role="button" style="position:fixed; top:100px;left:300px;">Get My Location</button>
 
     <select style="position:relative; top:-100px;left:50px;" id="Destination">
 
