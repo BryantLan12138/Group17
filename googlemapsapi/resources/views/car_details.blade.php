@@ -4,7 +4,7 @@
 <script>
       //JS for locating user's current location
       function getLocation(){
-    if (navigator.geolocation) {
+        if (navigator.geolocation) {
         var location_timeout = setTimeout("geolocFail()", 10000);
         var my_latlng = null;
         navigator.geolocation.getCurrentPosition(function(pos) {
