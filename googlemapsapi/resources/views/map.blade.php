@@ -37,7 +37,7 @@
 
         my_mark.set("content", "Current Location");
         console.log(pos);
-        
+
         google.maps.event.addListener(my_mark, "click", function(event) {
             iw_map.setContent(this.get("content"));
             iw_map.open(map, this);
@@ -53,7 +53,7 @@
         var onChangeHandler = function() {
             calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
-        
+
         document.getElementById('Destination').addEventListener('change', onChangeHandler);
           currentPos = pos.coords.latitude+","+pos.coords.longitude;
           //  {{session('location')}}= currentPos;
@@ -62,7 +62,7 @@
             origin: currentPos,
             destination: document.getElementById('Destination').value,
             travelMode: google.maps.TravelMode.DRIVING
-            },  
+            },
     function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
@@ -86,24 +86,24 @@
         {!! $map['html'] !!}
     </div>
     <div id="mySidebar" class="sidebar">
-        <a href=" " class="closebtn" onclick="closeNav()">&times;</a>
+        <a  class="closebtn" onclick="closeNav()">&times;</a>
         <h1 class="text-center my-5">Car List</h1>
         <div class="card card-default">
             <div class="card card-body">
             <ul class="list-group">
                 @foreach($cars as $cars)
-               
+
                 <li class="list-group-item">
                     <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">
                        {{$cars->make}}{{$cars->model}}
-                    <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Details</a>&nbsp;&nbsp;&nbsp; 
-                    
-                   
-{{--                    
+                    <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Details</a>&nbsp;&nbsp;&nbsp;
+
+
+{{--
                     <button  class="btn btn-dark btn-sm" >Direct Me</button>
                     --}}
-                    
-                      
+
+
                     {{-- onclick="document.getElementById('{{$cars->id}}').setAttribute('id','Destination')" --}}
                 </li>
                 @endforeach
@@ -116,20 +116,20 @@
         <button class="openbtn" onclick="openNav()" style="float: left" >&#9776; Show Cars</button>
     </div>
     <br>
-    <button onclick="getLocation();" data-role="button" style="float:right">Get My Location</button>
-  
-    <select id="Destination">
-         
+    <button onclick="getLocation();" data-role="button" style="position:relative; top:-100px;left:50px;">Get My Location</button>
+
+    <select style="position:relative; top:-100px;left:50px;" id="Destination">
+
         <option>Select Your Car Park</option>
-          
+
         <option value="Metro Hobbies, Bourke Street, Melbourne, au">CarPark1</option>
         <option value="Queens Domain, 12 Queens Rd, Melbourne,au">CarPark2</option>
         <option value="Hearns Hobbies, Melbourne, au">CarPark3</option>
         <option value="Minotaur, Elizabeth Street, Melbourne, au">CarPark4</option>
     </select>
-   
-        
 
-           
+
+
+
 
 @endsection
