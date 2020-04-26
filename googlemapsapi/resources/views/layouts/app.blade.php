@@ -39,6 +39,14 @@
             left: 50%;
             transform: translate(-50%,0%);
         }
+
+        .map1{
+            text-align: center;
+            position: absolute;
+            right: -20%;
+            bottom: 10%;
+            transform: translate(-50%,0%);
+        }
     
         #directionsDiv{
     

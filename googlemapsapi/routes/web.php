@@ -15,17 +15,19 @@ Route::get('/', 'MapController@map' );
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth' => 'isadmin']], function(){
+Route::group(['middleware' => ['auth' => 'isadmin']], function()
+{
     Route::get('/admin', 'AdminController@index');
-});
+}
+);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('/car_details/{cars}','MapController@map_new');
 Route::get('/car_details/{cars}','MapController@showCars');
 
 
-// Route::get('googlemap', 'MapController@map');
-// Route::get('googlemap/direction', 'MapController@direction');
+
 
 
 
