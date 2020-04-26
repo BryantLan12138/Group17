@@ -99,7 +99,7 @@
                 <div class="card-header">
                     Details
                     <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
-                    <button onclick="getLocation();" data-role="button" class="btn btn-secondary btn-sm" style="float: right">Find Location!</button>&nbsp;&nbsp;
+                    <button onclick="getLocation();" data-role="button" class="btn btn-secondary btn-sm" style="float: right">Find Your Location!</button>&nbsp;&nbsp;
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button> 
                 </div>
             <div class="card card-body">
@@ -112,7 +112,7 @@
                 {!! $map_new['js'] !!}
                 {!! $map_new['html'] !!}
             </div>
-            <button class="btn btn-dark btn-sm">Checkout</button>
+            <a href="" class="btn btn-dark btn-sm">Checkout</a>
     </div>
 </body>
 

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    
 <script>
     function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
@@ -11,10 +10,8 @@
     function closeNav() {
         document.getElementById("mySidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
-        }
-
-</script>
-       
+        }   
+</Script>
     <div class="map">
         {!! $map['js'] !!}
         {!! $map['html'] !!}
@@ -30,10 +27,9 @@
                 <li class="list-group-item">
                     <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">
                        {{$cars->make}}{{$cars->model}}
-                    <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Book</a>
+                    <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Details</a>&nbsp;&nbsp;&nbsp;
                 </li>
                 @endforeach
-
             </ul>
             </div>
         </div>
@@ -41,5 +37,4 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()" style="float: left" >&#9776; Show Cars</button>
     </div>
-
 @endsection
