@@ -44,23 +44,25 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <h2 class="card-header">Car information</h2>
+                        <h2 class="card-header">Your Order Information</h2>
                         <div class="card-body">
                             <div class="links">
                                 <ul class="links">
-                                    <li class="links">
+                                    
                                         
-                                        <img src="{{ asset('image/'.$cars -> image)}}" width="500px" height="auto" alt="{{$cars -> image}}">
+                                        <img src="{{ asset('image/'.$cars -> image)}}" width="200px" height="auto" alt="{{$cars -> image}}">
                                         <span class="text-center" my-5>
-                                            Car No. {{$cars->id}} &nbsp; Licenseplate:{{$cars->licenseplate}}
+                                            <br>
+                                            Car No. {{$cars->id}} &nbsp; 
+                                            <br>
+                                            Licenseplate:{{$cars->licenseplate}}
                                         </span>
+
                                         <span class="text-center" my-5>
-                                            Details
-                                        </span>
-                                        <span class="text-center" my-5>
+                                            <br>
                                             locate at:{{$cars->address}}
                                         </span>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
