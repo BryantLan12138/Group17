@@ -73,5 +73,9 @@ class MapController extends Controller
  
         return view('car_details', compact('map_new'))->with('cars',Car::find($carId));
     }
-   
+
+    public function showRecipt($carId){
+
+        return view('payment')->with('cars', Car::find($carId));
+    } 
 }

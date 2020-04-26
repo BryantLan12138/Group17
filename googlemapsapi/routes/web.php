@@ -23,11 +23,13 @@ Route::group(['middleware' => ['auth' => 'isadmin']], function()
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/car_details/{cars}','MapController@map_new');
-Route::get('/car_details/{cars}','MapController@showCars');
+Route::get('/car_details/{cars}', 'MapController@showCars');
 
+Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
 
-
+Route::get('/paypal', function () {
+    return view('paypal');
+});
 
 
 
