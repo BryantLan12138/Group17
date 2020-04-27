@@ -11,40 +11,40 @@ class AdminController extends Controller
 {
     public function index(){
         
-        return view('admin')->with('cars', Car::all())->with('users', User::all());
+        return view('admin.admin')->with('cars', Car::all())->with('users', User::all());
     }
 
     public function cars_management(){
         
-        return view('cars_management')->with('cars', Car::all());
+        return view('admin.cars_management')->with('cars', Car::all());
     }
 
     public function users_management(){
         
-        return view('users_management')->with('users', User::all());
+        return view('admin.users_management')->with('users', User::all());
     }
 
     public function orders_management(){
 
         //update to orders when created order table
-        return view('cars_management')->with('cars', Car::all());
+        return view('admin.cars_management')->with('cars', Car::all());
     }
 
-    public function cars_update($carId){
-        return view('cars_update')->with('cars', Car::find($carId));
-    }
+
 
     public function add_car(){
-        return view('add_car');
+        return view('admin.add_car');
     }
 
     public function car_store(Request $request){
+        $this->validate($request,[
+            'licenseplate' => 'required',
+            'make' => 'required',
+            'model' => 'required',
+            'address' => 'required',
+            'image' => 'required',
+        ]);
         $newcar = new Car();
-        $dbcar= DB::table('cars');
-      //insert Marker: Car Park No.1 to No.10
-      if($dbcar -> where('licenseplate','=',$request ->input('licenseplate')) -> count() > 0){
-          echo "Car licenseplate already exist!";
-        }else{
         $newcar->licenseplate = $request ->input('licenseplate');
         $newcar->make = $request ->input('make');
         $newcar->model = $request ->input('model');
@@ -57,9 +57,32 @@ class AdminController extends Controller
         $newcar->image = $filename; 
 
         $newcar -> save();
-        }
-        return view('add_car')->with('newcar',$newcar);
+        //return view('admin.add_car')->with('newcar',$newcar)->with('success','Added successfully!');
+        return redirect('admin/cars_management')->with('success','Added successfully!');
 
+    }
+
+    public function car_edit($carId){
+        return view('admin.car_edit')->with('cars', Car::find($carId));
+    }
+
+    public function car_update(Request $request, $carId){
+        $edit_car = Car::find($carId);
+        $edit_car -> licenseplate = $request->input('licenseplate');
+        $edit_car -> address = $request->input('address');
+
+        $edit_car->save();
+
+        //return view('admin.car_edit')->with('cars',$edit_car)->with('success','Updated successfully!');
+        return redirect('admin/cars_management')->with('success','Updated successfully!');
+
+    }
+
+    public function car_delete($carId){
+        $destroy_car = Car::find($carId);
+        $destroy_car -> delete();
+
+        return redirect('admin/cars_management')->with('success','Deleted successfully!');
     }
 
 

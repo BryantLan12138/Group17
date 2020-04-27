@@ -5,6 +5,21 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Add a new car</div>
+                <br>
+                @if(count($errors)>0)
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>Please fill in all fields!
+                        </li>
+                    </ul>
+                </div>
+                @endif
+                @if(\Session::has('success'))
+                <div class="alert">
+                    <p>{{ \Session::get('success')}}</p>
+                </div>
+                @endif
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('car_store') }}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -14,12 +29,6 @@
                                 <input type="file" name="image" class="file-input">
                             </div>
                         </div>
-                        <!-- <div class="form-group row">
-                            <label for="car_licenseplate" class="col-md-4 col-form-label text-md-right">Image</label>
-                            <div class="col-md-6">
-                                <input type="text" name="image" class="form-control">
-                            </div>
-                        </div> -->
                         <div class="form-group row">
                             <label for="car_licenseplate" class="col-md-4 col-form-label text-md-right">Licenseplate</label>
                             <div class="col-md-6">
@@ -50,7 +59,7 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                            <button type="submit" name="submit" class="btn btn-dark">Save Changes</button>
+                            <button type="submit" name="submit" class="btn btn-dark">Save </button>
                             </div>
                         </div>
                     </form>
