@@ -37,21 +37,23 @@
             iw_map.open(map, this);
 
         });
-        google.maps.event.addListener(marker_0, "click", function(event) {
-            iw_map.setContent(this.get("content"));
-            iw_map.open(map, this);
-
-        });
     },
     function(error) {
             clearTimeout(location_timeout);
             geolocFail();
         });}else {
         // Fallback for no geolocation
-        geolocFail();}}
+        geolocFail();}
+        google.maps.event.addListener(marker_4, "click", function(event) {
+            iw_map.setContent("12345");
+            iw_map.open(map, this);
+            console.log("marker4")
+        })}
+        
+
         window.onload = function () {
         document.getElementById('find').click()
-};
+        };
 </Script>
     <div class="map">
         {!! $map['js'] !!}

@@ -12,7 +12,7 @@ class MapController extends Controller
     public function map()
     {
         $config['center'] = 'auto';
-        $config['zoom'] = '12';
+        $config['zoom'] = '13';
         $config['map_height'] = '500px';
         $config['map_width'] = '1000px';
         $config['scrollwheel'] = false;
@@ -28,7 +28,7 @@ class MapController extends Controller
         $data = $dbcar -> get();
         foreach($data as $key => $value){
             $marker['position'] = $value -> address;
-            $marker['infowindow_content'] = $value -> make;
+            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"; 
             $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker['draggable'] = FALSE;
             $marker['animation'] = 'DROP';
@@ -62,8 +62,8 @@ class MapController extends Controller
         $data_new = $dbcar_new -> get();
         foreach($data_new as $key => $value){
             $marker_new['position'] = $value -> address;
-           // $marker_new['infowindow_content'] = $value -> make;
-           // $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
+            $marker_new['infowindow_content'] = $value -> make;
+            $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker_new['draggable'] = FALSE;
             $marker_new['animation'] = 'DROP';
             $gmap_new->add_marker($marker_new);
