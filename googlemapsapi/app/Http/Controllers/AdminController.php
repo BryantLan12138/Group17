@@ -81,6 +81,10 @@ class AdminController extends Controller
     public function car_delete($carId){
         $destroy_car = Car::find($carId);
         $destroy_car -> delete();
+        // $image_path = 'image/'.Car::find($carId)->get()->image;
+        // if (file_exists($image_path)) {
+        //     @unlink($image_path);
+        // }
 
         return redirect('admin/cars_management')->with('success','Deleted successfully!');
     }
