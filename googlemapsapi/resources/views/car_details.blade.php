@@ -87,6 +87,7 @@
         var fifteenMinutes = 60 * 15,
             display = document.querySelector('#time');
         startTimer(fifteenMinutes, display);
+        document.getElementById('find').click()
     };
 </script>
 
@@ -99,7 +100,7 @@
                 <div class="card-header">
                     Details
                     <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
-                    <button onclick="getLocation();" data-role="button" class="btn btn-secondary btn-sm" style="float: right">Find Your Location!</button>&nbsp;&nbsp;
+                    <button onclick="getLocation();" data-role="button" id="find" class="btn btn-secondary btn-sm" style="display: none">Find Your Location!</button>&nbsp;&nbsp;
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button> 
                 </div>
             <div class="card card-body">
