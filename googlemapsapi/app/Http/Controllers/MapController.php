@@ -62,7 +62,7 @@ class MapController extends Controller
         $data_new = $dbcar_new -> get();
         foreach($data_new as $key => $value){
             $marker_new['position'] = $value -> address;
-            $marker_new['infowindow_content'] = $value -> make;
+            $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
             $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker_new['draggable'] = FALSE;
             $marker_new['animation'] = 'DROP';

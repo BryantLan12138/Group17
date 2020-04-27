@@ -7,7 +7,7 @@
             <div class="card card-default">
                 <div class="card-header">
                     Orders  
-                    <button class="btn btn-primary btn-sm float-right">Manage</button>
+                    <a href="/admin/orders_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp;
                     <div class="card-body">
                         <ul class="list-group">
                         </ul>
@@ -27,7 +27,8 @@
             <div class="card card-default">
                 <div class="card-header">
                     Cars  
-                    <button class="btn btn-primary btn-sm float-right">Manage</button>
+                    <a href="/admin/cars_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp;
+                    <!-- <button class="btn btn-primary btn-sm float-right">Manage</button> -->
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($cars as $car)
@@ -55,7 +56,7 @@
             <div class="card card-default">
                 <div class="card-header">
                     Users
-                    <button class="btn btn-primary btn-sm float-right">Manage</button>
+                    <a href="/admin/users_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp;
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($users as $user)
