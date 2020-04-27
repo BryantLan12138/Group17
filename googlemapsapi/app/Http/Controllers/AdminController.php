@@ -27,7 +27,7 @@ class AdminController extends Controller
     public function orders_management(){
 
         //update to orders when created order table
-        return view('admin.cars_management')->with('cars', Car::all());
+        return view('admin.orders_management');
     }
 
 
