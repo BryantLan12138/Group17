@@ -158,7 +158,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-
+                    <a class="nav-link" href="/about">
+                        About us
+                    </a>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -217,7 +219,7 @@
             <p class="float-right">
               <a href="#">Back to top</a>
             </p>
-            <p>Carabc is designed by &copy;Group17 </p>
+            <p style=" text-align:center">Carabc is designed by &copy;Group17 </p>
         </div>
     </footer>
 </div>

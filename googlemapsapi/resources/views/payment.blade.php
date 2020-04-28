@@ -3,35 +3,17 @@
 
 
     <main class="py-4">
-
-
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-            <h2 class="card-header">Good choice!</h2>
-            <div class="card-body">
-                <div class="links">
-                    Carabc services provide cars on demand, for rent either by the hour or by the day, and no parking hassles when done.<br>
-                    You register with a car share company, pay a fee and book a car either by phone or on the internet. Cars are picked up and dropped off at car share bays nearest to your location. Compare price structures, locations and service provision to work out which company best suits you and register on their website.
-                </div>
-            </div>
-        </div>
-    </div>
-        </div></div><br>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <h2 class="card-header">Supplier Location!</h2>
+                    <h2 class="card-header">Fees information</h2>
                     <div class="card-body">
                         <div class="links">
                             <ul class="links">
                                 <li class="links">
                                     <i class="links">
-                                    </i><span class="links">will list some Supplier Location</span>
+                                    </i><span class="links">The calculation of the fee is still developing</span>
                                 </li>
                             </ul>
                         </div>
@@ -53,14 +35,14 @@
                                         <img src="{{ asset('image/'.$cars -> image)}}" width="200px" height="auto" alt="{{$cars -> image}}">
                                         <span class="text-center" my-5>
                                             <br>
-                                            Car No. {{$cars->id}} &nbsp; 
+                                            Car Model: {{$cars->model}} &nbsp; 
                                             <br>
-                                            Licenseplate:{{$cars->licenseplate}}
+                                            Licenseplate:&nbsp;&nbsp;&nbsp;{{$cars->licenseplate}}
                                         </span>
 
                                         <span class="text-center" my-5>
                                             <br>
-                                            locate at:{{$cars->address}}
+                                            Find Your Car at:&nbsp;&nbsp;&nbsp;{{$cars->address}}
                                         </span>
                                     
                                 </ul>
@@ -76,8 +58,55 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Payment form</div>
-                        <div class="card-body">
+                        <div class="card-header">Your Details</div>
+                        <form>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="inputEmail4">First Name</label>
+                                <input type="email" class="form-control" id="inputEmail4">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputPassword4">Second Name</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputAddress">Address</label>
+                              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="form-group">
+                              <label for="inputAddress2">Address 2</label>
+                              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="inputCity">City</label>
+                                <input type="text" class="form-control" id="inputCity">
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label for="inputState">State</label>
+                                <select id="inputState" class="form-control">
+                                  <option selected>Choose...</option>
+                                  <option>...</option>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-2">
+                                <label for="inputZip">Zip</label>
+                                <input type="text" class="form-control" id="inputZip">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                  Check me out
+                                </label>
+                              </div>
+                            </div>
+                            <a href="/paypal" type="submit" class="btn btn-primary">Book now</a>
+                          </form>
+                          
+                        {{-- <div class="card-body">
                             <form method="POST" action="">
                                 <input type="hidden" name="_token">
                                 <div class="form-group row">
@@ -92,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Bill email address</label>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Billing email-address</label>
                                     <div class="col-md-6"><input id="email" type="email" name="email" required="required" autocomplete="current-password" class="form-control ">
                                     </div>
                                 </div>
@@ -102,7 +131,7 @@
                                 </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                        <a type="submit" class="btn btn-primary" href="http://127.0.0.1:8000/paypal" class="btn btn-link">
+                                        <a type="submit" class="btn btn-primary" href="/paypal" class="btn btn-link">
                                             Book now!
                                         </a>
                                         <a type="submit" class="btn btn-primary" href="" class="btn btn-link">
@@ -111,7 +140,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

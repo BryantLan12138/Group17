@@ -34,6 +34,11 @@ Route::get('/car_details/{cars}', 'MapController@showCars');
 
 Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+
 Route::get('/paypal', function () {
     return view('paypal');
 });
