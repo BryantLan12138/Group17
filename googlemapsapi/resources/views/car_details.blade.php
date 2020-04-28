@@ -123,7 +123,7 @@
                 <!-- only the page for available cars will show counter and confirm button -->
                 @if($cars->status=='available')
                 <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
-                <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" class="form-control" value="booked">
                 <button id="confirm" onclick="stopTiming();" class="btn btn-dark btn-sm float-right" type="submit" name="submit">Confirm</button>
@@ -131,7 +131,13 @@
                 @endif
                 <!-- only the page for booked cars will show return button -->
                 @if($cars->status=='booked')
-                <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm" style="float: right">Return</a>
+                <!-- <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm" style="float: right">Return</a> -->
+                <br>You have booked {{$cars->make}} {{$cars->model}} {{$cars->licenseplate}} successfully!
+                <form method="POST" action="{{ route('status_available',$cars->id) }}" enctype="multipart/form-data" class="float-right">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" class="form-control" value="available">
+                <button class="btn btn-dark btn-sm float-right" type="submit" name="submit">Return</button>
+            </form>
                 @endif
                 <button onclick="getLocation();" data-role="button" id="find" class="btn btn-secondary btn-sm" style="display: none">Find Your Location!</button>&nbsp;&nbsp;
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button>

@@ -90,4 +90,12 @@ class MapController extends Controller
         //return redirect('car_details')->with('cars',Car::find($carId));
         return redirect()->route('status_booked', [$car]);
     }
+
+    public function statusAvailable(Request $request, $carId){
+        $car = Car::find($carId);
+        $car -> status = $request->input('status');
+
+        $car ->save();
+        return redirect()->route('status_available', [$car]);
+    }
 }
