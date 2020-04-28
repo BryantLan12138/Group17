@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75fd7de1-3929-466b-aa58-c1f84d7896f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/map.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/map.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +145,8 @@
       <updated>1586327659276</updated>
       <workItem from="1586327661482" duration="6598000" />
       <workItem from="1587873534217" duration="507000" />
-      <workItem from="1587874126225" duration="5990000" />
+      <workItem from="1587874126225" duration="6906000" />
+      <workItem from="1587956005180" duration="428000" />
     </task>
     <servers />
   </component>
@@ -164,9 +158,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1077" y="453" key="NewPhpFileDialog/0.23.1440.877@0.23.1440.877" timestamp="1586329530628" />
-    <state x="385" y="351" key="com.intellij.ide.util.TipDialog" timestamp="1587873534667">
+    <state x="385" y="351" key="com.intellij.ide.util.TipDialog" timestamp="1587956005403">
       <screen x="0" y="23" width="1440" height="834" />
     </state>
-    <state x="385" y="351" key="com.intellij.ide.util.TipDialog/0.23.1440.834@0.23.1440.834" timestamp="1587873534667" />
+    <state x="385" y="351" key="com.intellij.ide.util.TipDialog/0.23.1440.834@0.23.1440.834" timestamp="1587956005403" />
   </component>
 </project>
