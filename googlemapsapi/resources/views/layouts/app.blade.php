@@ -36,7 +36,6 @@
         .map{
             margin:auto;
             width:71%;
-            border:5px solid green;
             padding:5px;
         }
 
@@ -49,7 +48,7 @@
         }
 
 
-
+/* 
         .footer {
             position:fixed;
             z-index:9999;
@@ -60,7 +59,7 @@
             height:5%;
             background-color:#cad7de
 
-        }
+        } */
         .content {
             text-align: center;
         }
@@ -207,14 +206,20 @@
         Carabc
     </div>
 
-    <footer>
-        <div class="footer">
-            <p>Copyright &copy; Group17.Go <a href="#top">top</a></p>
-        </div>
-    </footer>
+            
     <main class="py-4">
         @yield('content')
     </main>
+
+    
+    <footer class="card-footer text-muted">
+        <div class="container">
+            <p class="float-right">
+              <a href="#">Back to top</a>
+            </p>
+            <p>Carabc is designed by &copy;Group17 </p>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
