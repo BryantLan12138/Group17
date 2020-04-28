@@ -78,4 +78,16 @@ class MapController extends Controller
 
         return view('payment')->with('cars', Car::find($carId));
     } 
+
+    //change car status if booked
+    public function statusBooked(Request $request, $carId){
+        $car = Car::find($carId);
+        $car -> status = $request->input('status');
+
+        $car ->save();
+        
+        //return view('car_details', compact('map_new2'))->with('cars',Car::find($carId));
+        //return redirect('car_details')->with('cars',Car::find($carId));
+        return redirect()->route('status_booked', [$car]);
+    }
 }

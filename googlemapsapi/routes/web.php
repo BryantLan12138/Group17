@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth' => 'isadmin']], function()
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/car_details/{cars}', 'MapController@showCars');
+Route::post('/car_details/{cars}','MapController@statusBooked')->name('status_booked');
 
 Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
 
