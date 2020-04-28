@@ -15,6 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->String('user_name');
+            $table->String('car_licenseplate');
+            $table->integer('duration_hour');
+            $table->String('start_location');
+            $table->String('end_location');
             $table->timestamps();
         });
     }
