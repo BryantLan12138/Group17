@@ -67,28 +67,43 @@
 
     //15 minutes countdown function
     function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+        var timer = duration, minutes, seconds;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+            timing = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
 
-        display.textContent = minutes + ":" + seconds;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        if (--timer < 0) {
-            timer = duration;
-            }
-        }, 1000);
-    }
+            display.textContent = minutes + ":" + seconds;
 
-    window.onload = function () {
-        var fifteenMinutes = 60 * 15,
+            if (--timer < 0) {
+                timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var fifteenMinutes = 60 * 15,
             display = document.querySelector('#time');
-        startTimer(fifteenMinutes, display);
-        document.getElementById('find').click()
+            startTimer(fifteenMinutes, display);
+            
+            //display 15 minutes countdown timer
+       //stop countdown when click 'confirm' button
+
+            document.getElementById('find').click()
+            //start locating user's location without clicking any button
+            
+    // function pauseTimer(){
+    //         clearInterval(timer)
+    //     }   
     };
+
+    function stopTiming(){
+        clearInterval(timing);
+    }   
+        
 </script>
 
 <body>
@@ -102,6 +117,7 @@
                     <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
                     <button onclick="getLocation();" data-role="button" id="find" class="btn btn-secondary btn-sm" style="display: none">Find Your Location!</button>&nbsp;&nbsp;
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button> 
+                <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm" style="float: right">Return</a>
                 </div>
             <div class="card card-body">
                 {{$cars->make}}&nbsp;&nbsp;{{$cars->model}} &nbsp;
@@ -113,8 +129,8 @@
                 {!! $map_new['js'] !!}
                 {!! $map_new['html'] !!}
             </div>
-            <a href="#" class="btn btn-dark btn-sm">Confirm</a>
-            <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm">Return</a>
+            <button id="confirm" onclick="stopTiming();" class="btn btn-dark btn-sm">Confirm</button>
+            
     </div>
 </body>
 
