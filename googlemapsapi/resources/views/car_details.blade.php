@@ -113,7 +113,8 @@
                 {!! $map_new['js'] !!}
                 {!! $map_new['html'] !!}
             </div>
-            <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm">Checkout</a>
+            <a href="#" class="btn btn-dark btn-sm">Confirm</a>
+            <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm">Return</a>
     </div>
 </body>
 
