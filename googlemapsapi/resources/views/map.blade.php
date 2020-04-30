@@ -62,12 +62,13 @@
             <div class="card card-body">
             <ul class="list-group">
                 @foreach($cars as $cars)
-
+                @if($cars -> status == "available")
                 <li class="list-group-item">
                     <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">
                        {{$cars->make}}{{$cars->model}}
                     <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Details</a>&nbsp;&nbsp;&nbsp;
                 </li>
+                @endif
                 @endforeach
             </ul>
             </div>
