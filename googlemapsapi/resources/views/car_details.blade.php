@@ -20,7 +20,7 @@
                         icon: marker_icon,
                         animation: google.maps.Animation.DROP
                     };
-                    my_mark = createMarker_map(markerOptions);
+                    var my_mark = createMarker_map(markerOptions);
                     my_mark.id = my_mark;
 
                     my_mark.set("content", "Current Location");
@@ -29,8 +29,6 @@
                     google.maps.event.addListener(my_mark, "click", function(event) {
                         iw_map.setContent(this.get("content"));
                         iw_map.open(map, this);
-                        alert("You just clicked on Maker!!")
-
                     });
                     var directionsService = new google.maps.DirectionsService;
                     var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -69,7 +67,24 @@
             geolocFail();
         }
     }
+                function clickmap(){
 
+                    google.maps.event.addListener(map, "click", function(event) {
+                        var result = [event.latLng.lat(), event.latLng.lng()];
+                        transition(result);
+
+                    });
+                    var i = 0;
+                    var deltaLat;
+                    var deltaLng;
+
+                    function transition(result){
+                        i = 0;
+                        deltaLat = (result[0] - position[0])/numDeltas;
+                        deltaLng = (result[1] - position[1])/numDeltas;
+                        console.log(deltaLat,deltaLng);
+                    }
+                }
 
     //15 minutes countdown function
     function startTimer(duration, display) {
@@ -99,7 +114,11 @@
         //display 15 minutes countdown timer
         //stop countdown when click 'confirm' button
 
-        document.getElementById('find').click()
+        @if($cars->status=='available')
+        document.getElementById('find').click();
+        @endif
+
+
         //start locating user's location without clicking any button
 
         // function pauseTimer(){
@@ -134,10 +153,10 @@
                 <!-- <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm" style="float: right">Return</a> -->
                 <br>You have booked {{$cars->make}} {{$cars->model}} {{$cars->licenseplate}} successfully!
                 <form method="POST" action="{{ route('status_available',$cars->id) }}" enctype="multipart/form-data" class="float-right">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="status" class="form-control" value="available">
-                <button class="btn btn-dark btn-sm float-right" type="submit" name="submit">Return</button>
-            </form>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="status" class="form-control" value="available">
+                    <button class="btn btn-dark btn-sm float-right" type="submit" name="submit">Return</button>
+                </form>
                 @endif
                 <button onclick="getLocation();" data-role="button" id="find" class="btn btn-secondary btn-sm" style="display: none">Find Your Location!</button>&nbsp;&nbsp;
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button>
