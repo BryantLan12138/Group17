@@ -155,6 +155,9 @@
                 <form method="POST" action="{{ route('status_available',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="status" class="form-control" value="available">
+                <!-- modified start -->
+                <input type="hidden" name="duration" class="form-control" value="1">
+                <!-- modified end -->
                     <button class="btn btn-dark btn-sm float-right" type="submit" name="submit">Return</button>
                 </form>
                 @endif

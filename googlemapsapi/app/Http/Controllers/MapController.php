@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Order;
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Support\Facades\DB;
@@ -89,6 +90,7 @@ class MapController extends Controller
         $car -> status = $request->input('status');
 
         $car ->save();
+
         
         //return view('car_details', compact('map_new2'))->with('cars',Car::find($carId));
         //return redirect('car_details')->with('cars',Car::find($carId));
@@ -100,6 +102,18 @@ class MapController extends Controller
         $car -> status = $request->input('status');
 
         $car ->save();
+
+        // <!-- modified start -->
+        $order = new Order();
+        $order -> user_name = 'test';
+        $order -> car_licenseplate = 'test';
+        $order -> duration_hour = $request->input('duration');
+        $order -> start_location = 'test';
+        $order -> end_location = 'test';
+        
+        $order ->save();     
+        // <!-- modified end -->
+
         return redirect()->route('status_available', [$car]);
     }
 }
