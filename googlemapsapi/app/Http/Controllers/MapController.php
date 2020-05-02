@@ -91,6 +91,7 @@ class MapController extends Controller
         $car -> status = $request->input('status');
 
         $car ->save();
+        session(['start_location'=>$car->address]);
 
         
         //return view('car_details', compact('map_new2'))->with('cars',Car::find($carId));
@@ -106,17 +107,14 @@ class MapController extends Controller
 
         // <!-- modified start -->
         $order = new Order();
-        $order -> user_name = 'test';
-        $order -> car_licenseplate = 'test';
         $order -> duration_hour = $request->input('duration');
-        $order -> start_location = 'test';
-        $order -> end_location = 'test';
+        $order -> charge = 15.00;
+        $order -> start_location = session('start_location');
+        $order -> end_location = 'Mockup End_location';
         
         $order ->save(); 
-
-        session(['order_id'=>$order->id]);
         // <!-- modified end -->
-
+        session(['order_id'=>$order->id]);
         return redirect()->route('status_available', $car);
     }
 }

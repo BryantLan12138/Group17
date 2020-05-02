@@ -16,10 +16,10 @@
                                 Order <?php echo $count++; ?>: &nbsp;&nbsp;&nbsp;&nbsp; 
                                 {{$report -> created_at}}&nbsp;&nbsp;&nbsp;&nbsp; 
                                 <br>
-                                Start Location:{{$report -> start_location}}
+                                Start Location:&nbsp;{{$report -> start_location}}
                                 <br>
-                                End Location:{{$report -> end_location}}
-                                <a href="/booking_history/{{$report->id}}" class="btn btn-dark float-right">Details</a>
+                                End Location:&nbsp;{{$report -> end_location}}
+                                <a href="/booking_history/{{$report->order_id}}" class="btn btn-dark float-right">Details</a>
                             </li>
                             @endforeach
                         </ul>

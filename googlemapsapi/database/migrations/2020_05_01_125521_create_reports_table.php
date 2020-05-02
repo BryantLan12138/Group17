@@ -21,7 +21,7 @@ class CreateReportsTable extends Migration
             $table->String('firstname');
             $table->String('lastname');
             $table->String('mobile');
-            $table->String('address');
+            $table->String('user_address');
             $table->timestamps();
         });
     }

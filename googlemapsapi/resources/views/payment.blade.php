@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group">
                               <label for="inputAddress">Address</label>
-                              <input type="text" name="address" class="form-control" required>
+                              <input type="text" name="user_address" class="form-control" required>
                             </div>
                             <!-- <div class="form-group">
                               <label for="inputAddress2">Address 2</label>
