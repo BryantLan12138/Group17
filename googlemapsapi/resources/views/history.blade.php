@@ -13,10 +13,12 @@
                             <?php $count=1; ?>
                             @foreach($reports as $report)
                             <li class="list-group-item"> 
-                                Order <?php echo $count++; ?>: &nbsp;&nbsp;&nbsp;&nbsp;
+                                Order <?php echo $count++; ?>: &nbsp;&nbsp;&nbsp;&nbsp; 
                                 {{$report -> created_at}}&nbsp;&nbsp;&nbsp;&nbsp; 
-                                Charge: AU$ 22.00&nbsp;&nbsp;&nbsp;&nbsp;
-                                Status: Payed&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br>
+                                Start Location:{{$report -> start_location}}
+                                <br>
+                                End Location:{{$report -> end_location}}
                                 <a href="/booking_history/{{$report->id}}" class="btn btn-dark float-right">Details</a>
                             </li>
                             @endforeach

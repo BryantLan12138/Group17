@@ -61,6 +61,7 @@
                         <div class="card-header">Your Details</div>
                         <form method="POST" action="{{ route('user_report',$cars->id) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="order_id" class="form-control" value="{{session('order_id')}}">
                         <input type="hidden" name="car_id" class="form-control" value="{{$cars->id}}">
                         <input type="hidden" name="user_id" class="form-control" value="{{Auth::user()->id}}">
                             <div class="form-row">
@@ -104,7 +105,7 @@
                                 <input type="text" class="form-control" id="inputZip">
                               </div> 
                             </div>-->
-                            <button class="btn btn-primary" type="submit" name="submit">Book now</button>
+                            <button class="btn btn-primary" type="submit" name="submit">Proceed to payment</button>
                           </form>
                           
                         {{-- <div class="card-body">

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class MapController extends Controller
 {
+
     public function map()
     {
         $config['center'] = 'auto';
@@ -111,9 +112,11 @@ class MapController extends Controller
         $order -> start_location = 'test';
         $order -> end_location = 'test';
         
-        $order ->save();     
+        $order ->save(); 
+
+        session(['order_id'=>$order->id]);
         // <!-- modified end -->
 
-        return redirect()->route('status_available', [$car]);
+        return redirect()->route('status_available', $car);
     }
 }

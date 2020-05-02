@@ -14,6 +14,7 @@ class ReportController extends Controller
 {
     public function createReport(Request $request){
         $report = new Report();
+        $report->order_id = $request ->input('order_id');
         $report->user_id = $request ->input('user_id');
         $report->car_id = $request ->input('car_id');
         $report->firstname = $request ->input('firstname');
@@ -29,12 +30,13 @@ class ReportController extends Controller
 
     public function generateReport(){
 
-        $db = DB::table('reports');
-        $report = $db->get()->where('user_id',Auth::user()->id);
+        // $reports = DB::table('reports');
+        // $report = $reports->get()->where('user_id',Auth::user()->id);
 
-
-        //return view('report')->with('reports', $report);
-        return view('history')->with('reports', $report);
+        //Join two tables
+        $reports = DB::table('reports') -> leftJoin('orders','reports.order_id','=','orders.id') ->where('reports.user_id','=',Auth::user()->id)-> get();
+        
+        return view('history')->with('reports', $reports);
 
     }
 
