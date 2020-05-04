@@ -32,13 +32,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/car_details/{cars}', 'MapController@showCars');
 Route::post('/car_details/{cars}','MapController@statusBooked')->name('status_booked');
-Route::post('/paypal', 'ReportController@createReport')->name('user_report');
+//Route::post('/paypal', 'ReportController@createReport')->name('user_report');
 Route::get('/booking_history','ReportController@bookingHistory');
 Route::get('/booking_history/{reports}','ReportController@generateReport');
 Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
 Route::post('/car_details/{cars}/payment','MapController@statusAvailable')->name('status_available');
 
-Route::get('/car_details/{cars}/payment/paypal', 'PaymentController@index');
+Route::post('/car_details/{cars}/payment/paypal', 'PaymentController@index')->name('user_report');
 Route::post('charge', 'PaymentController@charge');
 Route::get('paymentsuccess', 'PaymentController@payment_success');
 Route::get('paymenterror', 'PaymentController@payment_error');
@@ -46,11 +46,6 @@ Route::get('paymenterror', 'PaymentController@payment_error');
 Route::get('/about', function () {
     return view('about');
 });
-
-
-// Route::get('/paypal', function () {
-//     return view('paypal');
-// });
 
 
 
