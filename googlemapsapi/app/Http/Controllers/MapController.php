@@ -94,6 +94,8 @@ class MapController extends Controller
         $car ->save();
         session(['start_location'=>$car->address]);
 
+        $order = new Order();
+        
         
         
        
@@ -111,12 +113,12 @@ class MapController extends Controller
         $order = new Order();
         $order-> hour = $request ->input('hour');
         $order-> minute = $request ->input('minute');
-        $order-> user_name = 'test';
-        $order-> car_licenseplate = 'test101';
-        $order-> start_location = 'melbourne';
-        $order-> end_location = 'qv';
+        $order -> start_location = session('start_location');
+        $order -> end_location = 'Mockup End_location';
 
         $order -> save();
+
+        session(['order_id'=>$order->id]);
 
         return redirect()->route('status_available', [$car]);
     }

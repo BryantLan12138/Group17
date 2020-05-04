@@ -5,13 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Order number: ODS62CJIA03023KNLVS </div>
+                <div class="card-header">Your order details </div>
 
                 <div class="card-body">
 
                     <?php date_default_timezone_set("Australia/Melbourne");
                     $now = date('d/m/Y H:i:s'); 
-                    $gst_number = $reports[0] -> charge / 11;
+                    //total_price=unit_price*minute/60+unit_price*hour
+                    $gst_number = ($reports[0]->unit_price*($reports[0]->minute/60)+$reports[0]->unit_price*$reports[0]->hour) / 10;
                     $gst = number_format($gst_number, 2, '.', '');
                     ?>
                     <h3>Carabc</h3>
@@ -49,19 +50,19 @@
                         <tr><th colspan="4">End location</th></tr>
                         <tr><td colspan="4">{{$reports[0] -> end_location}}</td></tr>
                         <tr>
-                            <th>Date and Time</th>
+                            <th>Booking time</th>
                             <th>Booking duration</th>
                             <th>Car licenseplate</th>
                             <th>Car Make/Model</th>
                         </tr>
                         <tr>
                             <td>{{$reports[0] -> created_at}}</td>
-                            <td>{{$reports[0] -> duration_hour}}hrs</td>
+                            <td>{{$reports[0] -> hour}}hrs {{$reports[0] -> minute}}mins</td>
                             <td>{{$reports[0] -> licenseplate}}</td>
-                            <td>{{$reports[0] -> make}}|{{$reports[0] -> model}}</td>
+                            <td>{{$reports[0] -> make}} | {{$reports[0] -> model}}</td>
                         </tr>
-                        <tr><th></th><th></th><th colspan="2"><hr>Charge</th></tr>
-                        <tr><td></td><td></td><td colspan="2">AU$ {{$reports[0] -> charge}}<br>( 9.09% GST inclusive: AU$ <?php echo $gst;?> )</td></tr>
+                        <tr><th></th><th></th><th colspan="2"><hr>Total amount</th></tr>
+                        <tr><td></td><td></td><td colspan="2">AU$ <?php echo round(($reports[0]->unit_price*($reports[0]->minute/60)+$reports[0]->unit_price*$reports[0]->hour)*1.1,2);?><br>( 10.00% Admin Fees & GST inclusive: AU$ <?php echo $gst;?> )</td></tr>
 
                     </table>
 

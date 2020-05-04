@@ -9,6 +9,7 @@ use Omnipay\Omnipay;
 use App\Payment;
 use App\Order;
 use App\Car;
+use App\Report;
 
 class PaymentController extends Controller
 {
@@ -22,11 +23,23 @@ class PaymentController extends Controller
         $this->gateway->setTestMode(true); //set it to 'false' when go live
     }
  
-    public function index($carId)
+    public function index(Request $request,$carId)
     {
+        $report = new Report();
+        $report->order_id = $request->input('order_id');
+        $report->user_id = $request->input('user_id');
+        $report->car_id = $request->input('car_id');
+        $report->firstname = $request->input('firstname');
+        $report->lastname = $request->input('lastname');
+        $report->mobile = $request->input('mobile');
+        $report->user_address = $request->input('user_address');
+
+        $report->save();
+
         return view('paypal')
         ->with('cars', Car::find($carId))
-        ->with('orders', Order::latest()->first());
+        ->with('orders', Order::find($report->order_id));
+
     }
  
     public function charge(Request $request)

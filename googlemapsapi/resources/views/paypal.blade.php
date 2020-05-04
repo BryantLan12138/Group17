@@ -16,15 +16,16 @@
                             
                                 
                                 <li class="list-group-item">
-                                    {{($cars->unit_price*($orders->mimute/60)+$cars->unit_price*$orders->hour)*1.1}}
+                                    AU$
+                                    {{round(($cars->unit_price*($orders->minute/60)+$cars->unit_price*$orders->hour)*1.1,2)}}
                                 </li>
                                 
                                 
                             
                             <form action="{{ url('charge') }}" method="post" >
-                            <input type="text" name="amount" value="<?php echo ($cars->unit_price*($orders->mimute/60)+$cars->unit_price*$orders->hour)*1.1 ?>" />
+                            <input type="hidden" name="amount" value="<?php echo round(($cars->unit_price*($orders->minute/60)+$cars->unit_price*$orders->hour)*1.1,2) ?>" readonly>
                                 {{ csrf_field() }}
-                                <input type="submit" name="submit" value="Pay Now">
+                                <button class="btn btn-dark" type="submit" name="submit" value="Pay Now">Pay Now</button>
                             </form>
                              
 
