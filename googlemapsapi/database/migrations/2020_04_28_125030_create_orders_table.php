@@ -17,7 +17,8 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->String('user_name');
             $table->String('car_licenseplate');
-            $table->integer('duration_hour');
+            $table->integer('hour');
+            $table->integer('minute');
             $table->String('start_location');
             $table->String('end_location');
             $table->timestamps();

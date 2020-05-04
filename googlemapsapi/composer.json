@@ -12,7 +12,10 @@
         "farhanwazir/laravelgooglemaps": "dev-master",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "league/omnipay": "^3.0",
+        "omnipay/paypal": "^3.0",
+        "paypal/rest-api-sdk-php": "^1.14"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -36,14 +36,19 @@ Route::post('/car_details/{cars}','MapController@statusBooked')->name('status_bo
 Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
 Route::post('/car_details/{cars}/payment','MapController@statusAvailable')->name('status_available');
 
+Route::get('/car_details/{cars}/payment/paypal', 'PaymentController@index');
+Route::post('charge', 'PaymentController@charge');
+Route::get('paymentsuccess', 'PaymentController@payment_success');
+Route::get('paymenterror', 'PaymentController@payment_error');
+
 Route::get('/about', function () {
     return view('about');
 });
 
 
-Route::get('/paypal', function () {
-    return view('paypal');
-});
+// Route::get('/paypal', function () {
+//     return view('paypal');
+// });
 
 
 

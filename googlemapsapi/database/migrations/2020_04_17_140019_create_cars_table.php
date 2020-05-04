@@ -20,6 +20,7 @@ class CreateCarsTable extends Migration
             $table->String('model');
             $table->String('address');
             $table->String('image');
+            $table->integer('unit_price');
             $table->String('status')->default('available');
             $table->timestamps();
         });

@@ -1,22 +1,27 @@
 @extends('layouts.app')
 @section('content')
 
-
     <main class="py-4">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h2 class="card-header">Fees information</h2>
+                    <h2 class="card-header">Cost Breakdown</h2>
                     <div class="card-body">
-                        <div class="links">
-                            <ul class="links">
-                                <li class="links">
-                                    <i class="links">
-                                    </i><span class="links">The calculation of the fee is still developing</span>
-                                </li>
-                            </ul>
-                        </div>
+                       
+                       <br>
+                       <p>
+                        There are numbers of different surcharges and fees that contribute to the car share rate on 
+                        your screen. Here is a guide to help you how the car share price structure works.
+                        <br><br>  
+                        Base rate: is the base cost of your rental car before any relevent taxes and surcharges have been added.
+                        <br><br>
+                        Admin Fees & Goods and Services Tax(GST): 10% of the base rate
+                        <br><br>
+                        Duration: Interval between start leasing the car and returning the car
+                        <br><br> 
+                        Cost: Refer to the final amount of charges 
+                          
                     </div>
                 </div>
             </div>
@@ -103,7 +108,7 @@
                                 </label>
                               </div>
                             </div>
-                            <a href="/paypal" type="submit" class="btn btn-primary">Book now</a>
+                            <a href="/car_details/{{$cars->id}}/payment/paypal" type="submit" class="btn btn-dark">Pay now</a>
                           </form>
                           
                         {{-- <div class="card-body">

@@ -6,6 +6,7 @@ use App\Car;
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Support\Facades\DB;
+use App\Order;
 
 class MapController extends Controller
 {
@@ -86,6 +87,8 @@ class MapController extends Controller
 
         $car ->save();
         
+        
+       
         //return view('car_details', compact('map_new2'))->with('cars',Car::find($carId));
         //return redirect('car_details')->with('cars',Car::find($carId));
         return redirect()->route('status_booked', [$car]);
@@ -94,8 +97,19 @@ class MapController extends Controller
     public function statusAvailable(Request $request, $carId){
         $car = Car::find($carId);
         $car -> status = $request->input('status');
-
+        
         $car ->save();
+
+        $order = new Order();
+        $order-> hour = $request ->input('hour');
+        $order-> minute = $request ->input('minute');
+        $order-> user_name = 'test';
+        $order-> car_licenseplate = 'test101';
+        $order-> start_location = 'melbourne';
+        $order-> end_location = 'qv';
+
+        $order -> save();
+
         return redirect()->route('status_available', [$car]);
     }
 }
