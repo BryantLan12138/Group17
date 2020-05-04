@@ -73,8 +73,8 @@
             var result = [event.latLng.lat(), event.latLng.lng()];
             transition(result);
 
-    condition = false;
-                    });
+            condition = false;
+            });
                     var i = 0;
                     var deltaLat;
                     var deltaLng;
