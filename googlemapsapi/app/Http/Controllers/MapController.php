@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Order;
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Support\Facades\DB;
-use App\Order;
+
 
 class MapController extends Controller
 {
+
     public function map()
     {
         $config['center'] = 'auto';
@@ -28,12 +30,14 @@ class MapController extends Controller
         $dbcar= DB::table('cars');
         $data = $dbcar -> get();
         foreach($data as $key => $value){
+            if($value -> status == "available"){
             $marker['position'] = $value -> address;
-            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"; 
+            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"."<br><a href='/car_details/".$value -> id." class='btn btn-dark '>Details</a>"; 
             $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker['draggable'] = FALSE;
             $marker['animation'] = 'DROP';
             $gmap->add_marker($marker);
+            }
          }
 
         $map = $gmap->create_map();
@@ -62,12 +66,14 @@ class MapController extends Controller
         $dbcar_new= DB::table('cars');
         $data_new = $dbcar_new -> get();
         foreach($data_new as $key => $value){
+            if($value -> id == substr($_SERVER['REQUEST_URI'], -1)){
             $marker_new['position'] = $value -> address;
             $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
             $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker_new['draggable'] = FALSE;
             $marker_new['animation'] = 'DROP';
             $gmap_new->add_marker($marker_new);
+            }
          }
 
         $map_new = $gmap_new->create_map();
@@ -86,6 +92,8 @@ class MapController extends Controller
         $car -> status = $request->input('status');
 
         $car ->save();
+        session(['start_location'=>$car->address]);
+
         
         
        

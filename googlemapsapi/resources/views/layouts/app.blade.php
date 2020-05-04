@@ -182,10 +182,14 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <!-- Dropdown list item for admin management -->
                                 @if(Auth::user()->is_admin)
                                 <a class="dropdown-item" href="/admin">{{ __('Admin Management') }}</a>
                                 @endif
-
+                                <!-- Dropdown list item for directing user to report -->
+                                @if(Auth::user()->is_admin == false)
+                                <a class="dropdown-item" href="/booking_history">{{ __('Booking history') }}</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

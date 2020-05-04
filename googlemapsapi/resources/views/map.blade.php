@@ -66,7 +66,7 @@
                 <li class="list-group-item">
                     <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">
                        {{$cars->make}}{{$cars->model}}
-                    <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Details</a>&nbsp;&nbsp;&nbsp;
+                    <a href="/car_details/{{$cars->id}}" class="btn btn-dark ">Book</a>&nbsp;&nbsp;&nbsp;
                 </li>
                 @endforeach
             </ul>

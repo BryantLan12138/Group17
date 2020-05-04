@@ -20,7 +20,7 @@
                         icon: marker_icon,
                         animation: google.maps.Animation.DROP
                     };
-                    my_mark = createMarker_map(markerOptions);
+                    var my_mark = createMarker_map(markerOptions);
                     my_mark.id = my_mark;
 
                     my_mark.set("content", "Current Location");
@@ -29,8 +29,6 @@
                     google.maps.event.addListener(my_mark, "click", function(event) {
                         iw_map.setContent(this.get("content"));
                         iw_map.open(map, this);
-                        alert("You just clicked on Maker!!")
-
                     });
                     var directionsService = new google.maps.DirectionsService;
                     var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -69,8 +67,26 @@
             geolocFail();
         }
     }
+    function clickmap(){
+
+        google.maps.event.addListener(map, "click", function(event) {
+            var result = [event.latLng.lat(), event.latLng.lng()];
+            transition(result);
 
     condition = false;
+                    });
+                    var i = 0;
+                    var deltaLat;
+                    var deltaLng;
+
+                    function transition(result){
+                        i = 0;
+                        deltaLat = (result[0] - position[0])/numDeltas;
+                        deltaLng = (result[1] - position[1])/numDeltas;
+                        console.log(deltaLat,deltaLng);
+                    }
+                }
+
     //15 minutes countdown function
     function startTimer(duration, display) {
         var timer = duration,
@@ -94,6 +110,21 @@
 
    
     //stop countdown when click 'confirm' button
+   
+      
+
+        @if($cars->status=='available')
+        document.getElementById('find').click();
+        @endif
+
+
+        //start locating user's location without clicking any button
+
+        // function pauseTimer(){
+        //         clearInterval(timer)
+        //     }   
+   
+
     function stopTiming() {
         condition = true;
         clearInterval(timing);
