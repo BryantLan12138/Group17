@@ -47,6 +47,13 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/success_transaction', function() {
+    return view('success');
+});
+
+Route::get('/declined_transaction', function() {
+    return view('decline');
+});
 
 
 

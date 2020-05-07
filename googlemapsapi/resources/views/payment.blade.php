@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card text-white bg-dark mb-3">
                     <h2 class="card-header">Cost Breakdown</h2>
                     <div class="card-body">
 
@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card text-white bg-dark mb-3">
                     <h2 class="card-header">Your Order Information</h2>
                     <div class="card-body">
                         <div class="links">
@@ -63,7 +63,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card text-white bg-dark mb-3">
                     <div class="card-header">Your Details</div>
                     <form method="POST" action="{{ route('user_report',$cars->id) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -90,7 +90,7 @@
                             <label for="inputAddress">Address</label>
                             <input type="text" name="user_address" class="form-control" required>
                         </div>
-                        <button class="btn btn-primary" type="submit" name="submit">Proceed to payment</button>
+                        <button class="btn btn-light" type="submit" name="submit">Proceed to payment</button>
                     </form>
                 </div>
             </div>

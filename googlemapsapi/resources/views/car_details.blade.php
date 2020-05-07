@@ -140,7 +140,7 @@
 
 
 
-        <div class="card card-default">
+        <div class="card text-white bg-dark mb-3" >
             <div class="card-header">
                 Details
                 <!-- only the page for available cars will show counter and confirm button -->
@@ -150,7 +150,7 @@
                 <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="status" class="form-control" value="booked">
-                    <button onclick="stopTiming();" class="btn btn-dark btn-sm float-right" type="submit" name="submit">Confirm</button>
+                    <button onclick="stopTiming();" class="btn btn-light btn-sm float-right" type="submit" name="submit">Confirm</button>
                 </form>
                 <script>
                     window.onload = function() {
@@ -172,11 +172,12 @@
                 <!-- only the page for booked cars will show return button -->
                 @if($cars->status=='booked')
                 <!-- <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm" style="float: right">Return</a> -->
-                <br>You have booked {{$cars->make}} {{$cars->model}} {{$cars->licenseplate}} successfully!
+                <br>   
+                You have booked {{$cars->make}} {{$cars->model}} {{$cars->licenseplate}} successfully!
                 <br>
                 <br>Service Started:
                 <div id="timer">00:00:00</div>
-
+                
                 <script>
                     /* One second in reality is equivelent to 1000 seconds in development, for testing purpose */
 
@@ -238,23 +239,27 @@
                     <input type="hidden" name="hour" id="hour" class="form-control" value="">
                     <input type="hidden" name="minute" id="minute" class="form-control" value="">
 
-                    <button class="btn btn-dark btn-sm float-right" type="submit" name="submit">Return</button>
+                    <button class="btn btn-light btn-sm float-right" type="submit" name="submit">Return</button>
                 </form>
                 @endif
                 <button onclick="getLocation();" data-role="button" id="find" class="btn btn-secondary btn-sm" style="display: none">Find Your Location!</button>&nbsp;&nbsp;
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button>
             </div>
             <div class="card card-body">
+            <p class="card-text" id="carlist" >
                 {{$cars->make}}&nbsp;&nbsp;{{$cars->model}} &nbsp;
-                <br>locate at:&nbsp;&nbsp; {{$cars->address}}
+                <br>Locate at:&nbsp;{{$cars->address}}
                 <br>Price for the vehicle:{{$cars->unit_price}}($/hour)
-                <img src="{{ asset('image/'.$cars -> image)}}" width="500px" height="auto" alt="{{$cars -> image}}">
-            </div>
-
+                <br>
+                <img src="{{ asset('image/'.$cars -> image)}}" width="300px" height="auto" style="buttom: 0;" alt="{{$cars -> image}}">
+            </p>
             <div class="map1">
                 {!! $map_new['js'] !!}
                 {!! $map_new['html'] !!}
             </div>
+            </div>
+
+            
             <!-- <button id="confirm" onclick="stopTiming();" class="btn btn-dark btn-sm">Confirm</button> -->
 
 

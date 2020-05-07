@@ -96,8 +96,8 @@ class PaymentController extends Controller
                     $payment->payment_status = $arr_body['state'];
                     $payment->save();
                 }
-         
-                return "Payment is successful. Your transaction id is: ". $arr_body['id'];
+                return view('success');
+                // return "Payment is successful. Your transaction id is: ". $arr_body['id'];
             } else {
                 return $response->getMessage();
             }

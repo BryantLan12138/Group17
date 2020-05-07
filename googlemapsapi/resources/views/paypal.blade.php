@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card">
+                    <div class="card text-white bg-dark mb-3">
                         <div class="card-header">Paypal</div>
                         
                       
@@ -25,7 +25,7 @@
                             <form action="{{ url('charge') }}" method="post" >
                             <input type="hidden" name="amount" value="<?php echo round(($cars->unit_price*($orders->minute/60)+$cars->unit_price*$orders->hour)*1.1,2) ?>" readonly>
                                 {{ csrf_field() }}
-                                <button class="btn btn-dark" type="submit" name="submit" value="Pay Now">Pay Now</button>
+                                <button class="btn btn-light" type="submit" name="submit" value="Pay Now">Pay Now</button>
                             </form>
                              
 

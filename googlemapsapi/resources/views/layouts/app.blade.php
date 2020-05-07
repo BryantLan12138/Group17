@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Carabc</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,55 +11,83 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
 
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+
+        .carlist{
+            font-family: 'Nunito', sans-serif;
+            color: whitesmoke;
+            text-align: center;
+        }
 
 
         html, body {
             background-color: #fff;
-            color: #636b6f;
+            color:black; 
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
             height: 100vh;
             margin: 0;
         }
 
+        #intro{
+            background-color: #fff;
+            color:#fff; 
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 200vh;
+            margin: 0;
+        }
+
         .map{
-            margin:auto;
-            width:71%;
-            padding:5px;
+            margin: auto;
+            position: relative;
+            left:-10%;
+            width: 71%;
+            padding: 5px;
         }
 
         .map1 {
-            text-align: center;
+            margin: auto;
             position: absolute;
-            right: -20%;
-            bottom: 10%;
-            transform: translate(-50%,0%);
+            left: 50%;
+            top: 0%;
+            padding: 5px;
         }
 
 
-/* 
-        .footer {
-            position:fixed;
-            z-index:9999;
-            text-align: center;
-            bottom:0;
-            left:0;
-            width:100%;
-            height:5%;
-            background-color:#cad7de
+        .card-text {
+            font-family: 'Nunito', sans-serif;
+            color:black;
+        }
 
-        } */
+        #intro {
+            height: 100%;
+        }
+
+        #intro {
+            font-family: 'Nunito', sans-serif;
+            background: url("/image/melbourne.jpg")no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+
         .content {
             text-align: center;
         }
@@ -77,6 +105,13 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+
+        #login-icon{
+            margin:auto;
+            position: relative;
+            top: 15%;
+            left: 15%;
         }
 
         .m-b-md {
@@ -119,8 +154,9 @@
 
         .openbtn {
             font-size: 20px;
-            position: fixed;
-            top:20%;
+            position: relative;
+            top: 0px;
+            left: -10%;
             cursor: pointer;
             background-color: #111;
             color: white;
@@ -134,6 +170,7 @@
 
         #main {
             transition: margin-left .5s; /* If you want a transition effect */
+            top:20%;
             padding: 20px;
         }
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -146,10 +183,11 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
         <div class="container">
+            
             <a class="navbar-brand" href="{{ url('/') }}">
-                Carabc
+               <img src="/image/logo.jpg" width="50" height="30" class="d-inline-block" alt=""> Carabc
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -157,26 +195,50 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    <a class="nav-link" href="/about">
+                <ul class="navbar-nav mr-auto smooth-scroll">
+                    <a class="nav-link" href="{{ url('/about')}}">
                         About us
                     </a>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto"> 
+                    <!-- Social Icon  -->
+                    
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li>                           
+                            <svg class="bi bi-people-circle" id="login-icon" width="15px" height="15px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z"/>
+                                <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" clip-rule="evenodd"/>
+                              </svg>
+                            </li>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}&nbsp;&nbsp;&nbsp;</a>
+                            
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
+                                <li>                           
+                                    <svg class="bi bi-people-circle" id="login-icon" width="15px" height="15px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z"/>
+                                        <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                                        <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" clip-rule="evenodd"/>
+                                      </svg>
+                                    </li>
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
+                            <li>                           
+                                <svg class="bi bi-people-circle" id="login-icon" width="15px" height="15px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z"/>
+                                    <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                                    <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" clip-rule="evenodd"/>
+                                  </svg>
+                                </li>
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
@@ -204,13 +266,60 @@
                             </div>
                         </li>
                     @endguest
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="https://www.facebook.com" class="nav-link"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.twitter.com" class="nav-link"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.instagram.com" class="nav-link"><i class="fa fa-instagram"></i></a>
+                        </li>
+                    </ul>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="title m-b-md">
-        Carabc
+
+    <!--Mask-->
+    <div id="intro" class="view">
+
+        <div class="mask rgba-black-strong">
+
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+
+                <div class="row d-flex justify-content-center text-center">
+
+                    <div class="col-md-10">
+
+                        <!-- Heading -->
+                        <h2 class="display-3 font-weight-bold white-text pt-5 mb-2">Carabc</h2>
+
+                        <!-- Divider -->
+                        <hr class="hr-light">
+
+                        <!-- Description -->
+                        <h4 class="white-text my-4">Why rent if you can share?</h4>
+                        <button type="button" class="btn btn-outline-white">Read more<i class="fa fa-book ml-2"></i></button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+    <!--/.Mask-->
+
+
+
+    {{-- <div class="title m-b-md">
+        Carabc
+    </div> --}}
 
             
     <main class="py-4">
@@ -218,7 +327,7 @@
     </main>
 
     
-    <footer class="card-footer text-muted">
+    <footer class="card-footer text-muted bg-dark ">
         <div class="container">
             <p class="float-right">
               <a href="#">Back to top</a>
@@ -226,6 +335,6 @@
             <p style=" text-align:center">Carabc is designed by &copy;Group17 </p>
         </div>
     </footer>
-</div>
+    </div>
 </body>
 </html>

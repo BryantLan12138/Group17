@@ -32,7 +32,7 @@ class MapController extends Controller
         foreach($data as $key => $value){
             if($value -> status == "available"){
             $marker['position'] = $value -> address;
-            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"."<br><a href='/car_details/".$value -> id." class='btn btn-dark '>Details</a>"; 
+            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"."<br> <a href='/car_details/".$value -> id." class='btn btn-dark'>Book</a>"; 
             $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker['draggable'] = FALSE;
             $marker['animation'] = 'DROP';
