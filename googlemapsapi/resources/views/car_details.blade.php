@@ -2,6 +2,32 @@
 @section('content')
 
 <script>
+    // alert button js start
+    function CustomAlert(){
+            this.render = function(dialog){
+                var winWidth = window.innerWidth;
+                var winHeight = window.innerHeight;
+                var dialogoverlay = document.getElementById('dialogoverlay');
+                var dialogbox = document.getElementById('dialogbox');
+                dialogoverlay.style.display = "block";
+                dialogoverlay.style.height = winHeight+"px";
+                dialogbox.style.left = (winWidth/2) - (550 * .5)+"px";
+                dialogbox.style.top = "100px";
+                dialogbox.style.display = "block";
+                document.getElementById('dialogboxhead').innerHTML =  "Transaction closed";
+                document.getElementById('dialogboxbody').innerHTML = dialog;
+                document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()" class="btn btn-dark">Ok</button>';
+            }
+            this.ok = function(){
+                document.getElementById('dialogbox').style.display = "none";
+                document.getElementById('dialogoverlay').style.display = "none";
+                document.getElementById('cancel').click();
+                
+            }
+        }
+        var Alert = new CustomAlert();
+    //  alert button js end
+
     //JS for locating user's current location
     function getLocation() {
         if (navigator.geolocation) {
@@ -111,9 +137,9 @@
                 clearInterval(timing);
 
                 //alert the user time out
-                alert('Booking time expired. Please book again!');
+                //alert('Booking time expired. Please book again!');
                 //after user press button on alert, redirect user to cancel page:
-                document.getElementById('cancel').click();
+                document.getElementById('alert_button').click();
             }
         }, 1000);
 
@@ -157,6 +183,17 @@
                 <!-- only the page for locked cars will show counter and confirm button -->
 
                 @if($cars->status=='locked')
+                <!-- alert button html start -->
+                <div id="dialogoverlay"></div>
+                <div id="dialogbox">
+                    <div>
+                        <div id="dialogboxhead"></div>
+                        <div id="dialogboxbody" class="bg-dark"></div>
+                        <div id="dialogboxfoot"></div>
+                    </div>
+                </div>
+                <a id="alert_button" onclick="Alert.render('Booking expired, please book again!')"></a>
+                <!-- alert button html end -->
                 <form method="POST" action="{{ route('cancel_booking',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="status" class="form-control" value="available">
@@ -172,7 +209,7 @@
                 </form>
                 <script>
                     window.onload = function() {
-                            //set timer to 15 mins
+                        //set timer to 15 mins
                         var fifteenMinutes = 10, //60 * 15,
                             display = document.querySelector('#time');
 

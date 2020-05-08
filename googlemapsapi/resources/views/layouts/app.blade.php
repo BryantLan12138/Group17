@@ -179,6 +179,48 @@
             .sidebar a {font-size: 18px;}
         }
 
+        /* booking expired alert box */
+        #dialogoverlay{
+            display:none;
+            opacity: .8;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background:#FFF;
+            width:100%;
+            z-index:10;
+        }
+
+        #dialogbox{
+            display:none;
+            position:fixed;
+            background:#666;
+            border-radius:7px;
+            width:550px;
+            z-index:10;
+        }
+        #dialogbox > div{
+             
+            margin:8px;
+        }
+        #dialogbox > div > #dialogboxhead{
+            background:#666;
+            font-size:19px;
+            padding:10px;
+            color:#CCC;
+        }
+        #dialogbox > div > #dialogboxbody{
+            /* background:#333;  */
+            padding:20px;
+            color:#FFF;
+        }
+        #dialogbox > div > #dialogboxfoot{
+            background:#666;
+            padding:10px;
+            text-align:right;
+        }
+    
+
     </style>
 </head>
 <body>
