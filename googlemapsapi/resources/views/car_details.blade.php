@@ -109,10 +109,11 @@
             if (minutes == 0 && seconds == 0) {
                 //stop the timer when 15:00 count end
                 clearInterval(timing);
+
                 //alert the user time out
-                alert('Time out! Please choose again!');
-                //after user press button on alert, redirect user to home page:
-                window.location.href = "/";
+                alert('Booking time expired. Please book again!');
+                //after user press button on alert, redirect user to cancel page:
+                document.getElementById('cancel').click();
             }
         }, 1000);
 
@@ -156,6 +157,13 @@
                 <!-- only the page for locked cars will show counter and confirm button -->
 
                 @if($cars->status=='locked')
+                <form method="POST" action="{{ route('cancel_booking',$cars->id) }}" enctype="multipart/form-data" class="float-right">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="status" class="form-control" value="available">
+                    <button id="cancel" class="btn btn-light btn-sm float-right" type="submit" name="submit">Cancel booking</button>
+                </form>
+
+
                 <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
                 <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -164,8 +172,8 @@
                 </form>
                 <script>
                     window.onload = function() {
-
-                        var fifteenMinutes = 3, //60 * 15,
+                            //set timer to 15 mins
+                        var fifteenMinutes = 10, //60 * 15,
                             display = document.querySelector('#time');
 
                         startTimer(fifteenMinutes, display);

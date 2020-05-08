@@ -135,4 +135,17 @@ class MapController extends Controller
 
         return redirect()->route('status_available', [$car]);
     }
+
+    public function cancelBooking(Request $request, $carId){
+        $car = Car::find($carId);
+        $car -> status = $request->input('status');
+        
+        $car -> save();
+        return redirect()->route('cancel_booking',[$car]);
+        //return view('home');
+    }
+
+    public function cancelStatus(){
+        return view('cancel');
+    }
 }
