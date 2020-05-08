@@ -48,6 +48,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                        <label for="car_model" class="col-md-4 col-form-label text-md-right">Unit Price</label>
+                            <div class="col-md-6">
+                                <input type="text" name="unit_price" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                         <label for="car_address" class="col-md-4 col-form-label text-md-right">Address</label>
                             <div class="col-md-6">
                                 <input type="text" name="address" class="form-control">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <!-- div for order -->
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
@@ -18,7 +18,7 @@
 
         </div>
     </div>
-</div><br>
+</div><br> -->
 
 <!-- div for car -->
 <div class="container">
@@ -56,7 +56,7 @@
             <div class="card card-default">
                 <div class="card-header">
                     Users
-                    <a href="/admin/users_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp;
+                    <!-- <a href="/admin/users_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp; -->
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($users as $user)

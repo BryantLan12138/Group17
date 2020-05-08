@@ -43,11 +43,13 @@ class AdminController extends Controller
             'model' => 'required',
             'address' => 'required',
             'image' => 'required',
+            'unit_price' => 'required',
         ]);
         $newcar = new Car();
         $newcar->licenseplate = $request ->input('licenseplate');
         $newcar->make = $request ->input('make');
         $newcar->model = $request ->input('model');
+        $newcar->unit_price = $request ->input('unit_price');
         $newcar->address = $request ->input('address');
         //store image
         $file = $request -> file('image');
@@ -70,6 +72,7 @@ class AdminController extends Controller
         $edit_car = Car::find($carId);
         $edit_car -> licenseplate = $request->input('licenseplate');
         $edit_car -> address = $request->input('address');
+        $edit_car -> unit_price = $request->input('unit_price');
 
         $edit_car->save();
 
