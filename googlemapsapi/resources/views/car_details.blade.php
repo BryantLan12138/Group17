@@ -75,18 +75,18 @@
             transition(result);
 
             condition = false;
-            });
-                    var i = 0;
-                    var deltaLat;
-                    var deltaLng;
+        });
+        var i = 0;
+        var deltaLat;
+        var deltaLng;
 
-                    function transition(result){
-                        i = 0;
-                        deltaLat = (result[0] - position[0])/numDeltas;
-                        deltaLng = (result[1] - position[1])/numDeltas;
-                        console.log(deltaLat,deltaLng);
-                    }
-                }
+        function transition(result) {
+            i = 0;
+            deltaLat = (result[0] - position[0]) / numDeltas;
+            deltaLng = (result[1] - position[1]) / numDeltas;
+            console.log(deltaLat, deltaLng);
+        }
+    }
 
     //15 minutes countdown function
     function startTimer(duration, display) {
@@ -106,7 +106,17 @@
             if (--timer < 0) {
                 timer = duration;
             }
+            if (minutes == 0 && seconds == 0) {
+                //stop the timer when 15:00 count end
+                clearInterval(timing);
+                //alert the user time out
+                alert('Time out! Please choose again!');
+                //after user press button on alert, redirect user to home page:
+                window.location.href = "/";
+            }
         }, 1000);
+
+
     }
 
 
@@ -140,12 +150,12 @@
 
 
 
-        <div class="card text-white bg-dark mb-3" >
+        <div class="card text-white bg-dark mb-3">
             <div class="card-header">
                 Details
-                <!-- only the page for available cars will show counter and confirm button -->
+                <!-- only the page for locked cars will show counter and confirm button -->
 
-                @if($cars->status=='available')
+                @if($cars->status=='locked')
                 <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
                 <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -155,10 +165,11 @@
                 <script>
                     window.onload = function() {
 
-                        var fifteenMinutes = 60 * 15,
+                        var fifteenMinutes = 3, //60 * 15,
                             display = document.querySelector('#time');
 
                         startTimer(fifteenMinutes, display);
+
 
                         //display 15 minutes countdown timer
 
@@ -172,12 +183,12 @@
                 <!-- only the page for booked cars will show return button -->
                 @if($cars->status=='booked')
                 <!-- <a href="/car_details/{{$cars->id}}/payment" class="btn btn-dark btn-sm" style="float: right">Return</a> -->
-                <br>   
+                <br>
                 You have booked {{$cars->make}} {{$cars->model}} {{$cars->licenseplate}} successfully!
                 <br>
                 <br>Service Started:
                 <div id="timer">00:00:00</div>
-                
+
                 <script>
                     /* One second in reality is equivelent to 1000 seconds in development, for testing purpose */
 
@@ -246,20 +257,20 @@
                 <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button>
             </div>
             <div class="card card-body">
-            <p class="card-text" id="carlist" >
-                {{$cars->make}}&nbsp;&nbsp;{{$cars->model}} &nbsp;
-                <br>Locate at:&nbsp;{{$cars->address}}
-                <br>Price for the vehicle:{{$cars->unit_price}}($/hour)
-                <br>
-                <img src="{{ asset('image/'.$cars -> image)}}" width="300px" height="auto" style="buttom: 0;" alt="{{$cars -> image}}">
-            </p>
-            <div class="map1">
-                {!! $map_new['js'] !!}
-                {!! $map_new['html'] !!}
-            </div>
+                <p class="card-text" id="carlist">
+                    {{$cars->make}}&nbsp;&nbsp;{{$cars->model}} &nbsp;
+                    <br>Locate at:&nbsp;{{$cars->address}}
+                    <br>Price for the vehicle:{{$cars->unit_price}}(AU$/hour)
+                    <br>
+                    <img src="{{ asset('image/'.$cars -> image)}}" width="300px" height="auto" style="buttom: 0;" alt="{{$cars -> image}}">
+                </p>
+                <div class="map1">
+                    {!! $map_new['js'] !!}
+                    {!! $map_new['html'] !!}
+                </div>
             </div>
 
-            
+
             <!-- <button id="confirm" onclick="stopTiming();" class="btn btn-dark btn-sm">Confirm</button> -->
 
 

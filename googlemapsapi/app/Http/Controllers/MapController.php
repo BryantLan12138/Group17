@@ -77,6 +77,13 @@ class MapController extends Controller
          }
 
         $map_new = $gmap_new->create_map();
+
+        $car_lock = Car::find($carId);
+        if($car_lock->status == 'available'){
+            $car_lock->status = 'locked';
+            $car_lock ->save();
+        }
+
  
         return view('car_details', compact('map_new'))->with('cars',Car::find($carId));
     }
@@ -85,6 +92,7 @@ class MapController extends Controller
 
         return view('payment')->with('cars', Car::find($carId));
     } 
+    
 
     //change car status if booked
     public function statusBooked(Request $request, $carId){
@@ -92,10 +100,17 @@ class MapController extends Controller
         $car -> status = $request->input('status');
 
         $car ->save();
-        session(['start_location'=>$car->address]);
 
         $order = new Order();
-        
+        $order-> hour = 0;
+        $order-> minute = 0;
+        $order -> start_location = $car -> address;
+        $order -> end_location = '';
+
+        $order -> save();
+
+        session(['order_id'=>$order->id]);
+
         
         
        
@@ -110,15 +125,13 @@ class MapController extends Controller
         
         $car ->save();
 
-        $order = new Order();
+        $order = Order::find(session('order_id'));
         $order-> hour = $request ->input('hour');
         $order-> minute = $request ->input('minute');
-        $order -> start_location = session('start_location');
         $order -> end_location = 'Mockup End_location';
 
         $order -> save();
 
-        session(['order_id'=>$order->id]);
 
         return redirect()->route('status_available', [$car]);
     }
