@@ -15,7 +15,7 @@
                             
                             
                                 
-                                <li class="list-group-item">
+                                <li class="list-group-item" style="color:black;">
                                     AU$
                                     {{round(($cars->unit_price*($orders->minute/60)+$cars->unit_price*$orders->hour)*1.1,2)}}
                                 </li>
