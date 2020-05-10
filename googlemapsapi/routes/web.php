@@ -32,7 +32,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', function () {
     return view('about');
 });
-
+Route::get('/feedback', function () {
+    return view('feedback');
+});
 Route::group(['middleware' => 'auth'], function()
 {
     Route::get('/car_details/{cars}', 'MapController@showCars');

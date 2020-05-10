@@ -256,14 +256,14 @@
                             </div>
                         </div>
                         
-                    </form>
+                    
 
                     <div class="text-center text-md-left">
-                        <a class="btn btn-secondary" onclick="validateForm();">Send</a>
+                        <button type="submit" name="submit" class="btn btn-dark" onclick="validateForm();">Send</button>
                     </div>
                     <div class="status"></div>
                 </div>
-                
+            </form>
                 <div class="col-md-3 text-center">
                     <ul class="list-unstyled mb-0">
                         <li><i class="fa fa-location-arrow mt-4 fa-2x"></i>
