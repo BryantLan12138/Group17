@@ -7,6 +7,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Support\Facades\DB;
+use App\Feedback;
 
 
 class MapController extends Controller
@@ -157,5 +158,6 @@ class MapController extends Controller
         $feedback->message = $request->input('message');
 
         $feedback->save();
+        return view('/');
     }
 }

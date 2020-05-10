@@ -213,22 +213,24 @@
                 <div class="col-md-9 mb-md-0 mb-5">
                     {{-- <form id="contact-form" name="contact-form" action="mail.php" method="POST"> --}}
                     <form method="POST" id="contact-form" name="contact-form" action="{{ route('sendFeedback') }}" enctype="multipart/form-data">
-
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      
                         <div class="row">
 
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
+                                    <label for="name" class="">Your name</label>
                                     <input type="text" id="name" name="name" class="form-control">
 
-                                    <label for="name" class="">Your name</label>
+                                    
                                 </div>
                             </div>
                            
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
                                     <label for="email" class="">Your email</label>
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -236,8 +238,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="subject" name="subject" class="form-control">
                                     <label for="subject" class="">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    
                                 </div>
                             </div>
                         </div>
@@ -246,8 +249,9 @@
                             <div class="col-md-12">
 
                                 <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                     <label for="message">Your message</label>
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    
                                 </div>
                             </div>
                         </div>
