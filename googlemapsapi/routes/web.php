@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
     Route::post('/car_details/{cars}/payment','MapController@statusAvailable')->name('status_available');
     Route::post('/car_details/{cars}/payment/paypal', 'PaymentController@index')->name('user_report');
+    Route::post('/', 'MapController@sendFeedback')->name('sendFeedback');
     Route::post('charge', 'PaymentController@charge');
     Route::get('paymentsuccess', 'PaymentController@payment_success');
     Route::get('paymenterror', 'PaymentController@payment_error');

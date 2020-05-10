@@ -102,12 +102,12 @@ class PaymentController extends Controller
                 return $response->getMessage();
             }
         } else {
-            return 'Transaction is declined';
+            return view('declined');
         }
     }
  
     public function payment_error()
     {
-        return 'User is canceled the payment.';
+        return view('cancel');
     }
 }

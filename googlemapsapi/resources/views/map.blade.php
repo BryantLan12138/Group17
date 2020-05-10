@@ -12,7 +12,7 @@
         document.getElementById("mySidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
     }
-    //javascript for validate users input 
+    //javascript for validating users input 
     function validateForm() {
         var name = document.getElementById('name').value;
         if (name == "") {
@@ -209,14 +209,14 @@
 
             <div class="row">
 
-                <!--Grid column-->
+               
                 <div class="col-md-9 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                    {{-- <form id="contact-form" name="contact-form" action="mail.php" method="POST"> --}}
+                    <form method="POST" id="contact-form" name="contact-form" action="{{ route('sendFeedback') }}" enctype="multipart/form-data">
 
-                        <!--Grid row-->
+                     
                         <div class="row">
 
-                            <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <input type="text" id="name" name="name" class="form-control">
@@ -224,21 +224,15 @@
                                     <label for="name" class="">Your name</label>
                                 </div>
                             </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
+                           
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <input type="text" id="email" name="email" class="form-control">
                                     <label for="email" class="">Your email</label>
                                 </div>
                             </div>
-                            <!--Grid column-->
-
                         </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
@@ -247,23 +241,17 @@
                                 </div>
                             </div>
                         </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
+                        
                         <div class="row">
-
-                            <!--Grid column-->
                             <div class="col-md-12">
 
                                 <div class="md-form">
                                     <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                     <label for="message">Your message</label>
                                 </div>
-
                             </div>
                         </div>
-                        <!--Grid row-->
-
+                        
                     </form>
 
                     <div class="text-center text-md-left">
@@ -271,9 +259,7 @@
                     </div>
                     <div class="status"></div>
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
+                
                 <div class="col-md-3 text-center">
                     <ul class="list-unstyled mb-0">
                         <li><i class="fa fa-location-arrow mt-4 fa-2x"></i>
@@ -289,10 +275,10 @@
                         </li>
                     </ul>
                 </div>
-                <!--Grid column-->
+                
 
             </div>
 
         </section>
-        <!--Section: Contact v.2-->
+       
         @endsection

@@ -148,4 +148,14 @@ class MapController extends Controller
     public function cancelStatus(){
         return view('cancel');
     }
+
+    public function sendFeedback(Request $request){
+        $feedback = new Feedback();
+        $feedback->name = $request->input('name');
+        $feedback->email = $request->input('email');
+        $feedback->subject = $request->input('subject');
+        $feedback->message = $request->input('message');
+
+        $feedback->save();
+    }
 }

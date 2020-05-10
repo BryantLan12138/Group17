@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-dark mb-3">
         <h2 class="card-header">Thanks for choosing Carabc!!</h2>
         <div class="card-body">
             <div class="links">

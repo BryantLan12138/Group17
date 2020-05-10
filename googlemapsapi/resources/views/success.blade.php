@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Payment</div>
-                <div class="card-body">
+                <div class="card-body text-white bg-dark mb-3">
                     Payment is successful. <br>
                 </div>
             </div>
