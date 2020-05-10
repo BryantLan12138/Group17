@@ -158,6 +158,6 @@ class MapController extends Controller
         $feedback->message = $request->input('message');
 
         $feedback->save();
-        return view('/');
+        return redirect('map')->with('success','we have received your feedback :)');
     }
 }
