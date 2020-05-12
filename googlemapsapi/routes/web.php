@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth' => 'isadmin']], function()
     Route::get('/admin/users_management','AdminController@users_management');
     Route::get('/admin/cars_management/{cars}', 'AdminController@car_edit');
     Route::get('/admin/add_car','AdminController@add_car');
+    Route::get('/admin/map_admin','MapController@map_admin');
     Route::post('/admin/add_car','AdminController@car_store')->name('car_store');
     Route::post('/admin/car_edit/{cars}','AdminController@car_update')->name('car_update');
     Route::get('/admin/car_delete/{cars}','AdminController@car_delete');

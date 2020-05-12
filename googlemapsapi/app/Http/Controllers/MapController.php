@@ -32,7 +32,7 @@ class MapController extends Controller
         foreach($data as $key => $value){
             if($value -> status == "available"){
             $marker['position'] = $value -> address;
-            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"."<br> <a href='/car_details/".$value -> id." class='btn btn-dark'>Book</a>"; 
+            $marker['infowindow_content'] = $value -> make." ".$value -> model."<br><img src=".asset('image/'.$value -> image).">"."<br> <a href='/car_details/".$value -> id. "'class='btn btn-dark'>Book</a>"; 
             $marker['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker['draggable'] = FALSE;
             $marker['animation'] = 'DROP';
@@ -147,5 +147,15 @@ class MapController extends Controller
 
     public function cancelStatus(){
         return view('cancel');
+    }
+
+    public function map_admin()
+    {
+        //Add carpark marker on map,  fetch data from carpark table in database
+        $admincar= DB::table('cars');
+        $admindata = $admincar -> get();
+        $adminstatus = DB::select('select * from cars');
+        $gmaps_geocache = DB::select('select * from gmaps_geocache');
+        return view('admin.map_admin',compact('map2'))->with('cars', Car::all())->with('gmaps_geocache',$gmaps_geocache);
     }
 }

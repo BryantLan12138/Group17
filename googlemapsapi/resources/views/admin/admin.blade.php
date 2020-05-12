@@ -27,6 +27,7 @@
             <div class="card card-default">
                 <div class="card-header">
                     Cars  
+                    <a href="/admin/map_admin" class="btn btn-dark float-right">Show on map</a>&nbsp;
                     <a href="/admin/cars_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp;
                     <!-- <button class="btn btn-primary btn-sm float-right">Manage</button> -->
                     <div class="card-body">
