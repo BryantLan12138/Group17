@@ -70,6 +70,7 @@
                         <input type="hidden" name="order_id" class="form-control" value="{{session('order_id')}}">
                         <input type="hidden" name="car_id" class="form-control" value="{{$cars->id}}">
                         <input type="hidden" name="user_id" class="form-control" value="{{Auth::user()->id}}">
+                        @if(Auth::user()->firstname==null)
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputFirstname">First Name</label>
@@ -90,6 +91,28 @@
                             <label for="inputAddress">Address</label>
                             <input type="text" name="user_address" class="form-control" required>
                         </div>
+                        @else
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputFirstname">First Name</label>
+                                <input type="text" name="firstname" class="form-control" value="{{Auth::user()->firstname}}" placeholder="{{Auth::user()->firstname}}" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputLastname">Last Name</label>
+                                <input type="text" name="lastname" class="form-control" value="{{Auth::user()->lastname}}" placeholder="{{Auth::user()->lastname}}" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputMobile">Contact number</label>
+                                <input type="text" name="mobile" class="form-control" value="{{Auth::user()->mobile}}" placeholder="{{Auth::user()->mobile}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" name="user_address" class="form-control" value="{{Auth::user()->address}}" placeholder="{{Auth::user()->address}}" required>
+                        </div>
+                        @endif
                         <button class="btn btn-light" type="submit" name="submit">Proceed to payment</button>
                     </form>
                 </div>

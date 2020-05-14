@@ -129,7 +129,7 @@ class MapController extends Controller
         $order = Order::find(session('order_id'));
         $order-> hour = $request ->input('hour');
         $order-> minute = $request ->input('minute');
-        $order -> end_location = 'Mockup End_location';
+        $order -> end_location = 'The Pancake Parlour';
 
         $order -> save();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Feedback;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -90,6 +91,10 @@ class AdminController extends Controller
         // }
 
         return redirect('admin/cars_management')->with('success','Deleted successfully!');
+    }
+
+    public function feedback(){
+        return view('admin.feedback')->with('feedbacks', Feedback::all()->sortByDesc('created_at'));
     }
 
 

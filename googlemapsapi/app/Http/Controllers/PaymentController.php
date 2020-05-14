@@ -10,6 +10,8 @@ use App\Payment;
 use App\Order;
 use App\Car;
 use App\Report;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -35,6 +37,14 @@ class PaymentController extends Controller
         $report->user_address = $request->input('user_address');
 
         $report->save();
+
+        $userinfo = Auth::user();
+        $userinfo->firstname = $request->input('firstname');
+        $userinfo->lastname = $request->input('lastname');
+        $userinfo->mobile  = $request->input('mobile');
+        $userinfo->address = $request->input('user_address');
+
+        $userinfo->save();
 
         return view('paypal')
         ->with('cars', Car::find($carId))
