@@ -11,11 +11,11 @@
                         <ul class="list-group">
                             @foreach($feedbacks as $feedback)
                             <li class="list-group-item"> 
-                                {{$feedback -> created_at}}<br>
+                                <div style="color:grey">{{$feedback -> created_at}}<br>
                                 From: {{$feedback -> name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: {{$feedback -> email}}
-                                <br><br>
+                                </div><br>
                                 <h5>{{$feedback -> subject}}</h5>
-                                {{$feedback -> message}}
+                                {{$feedback -> message}}<br><br>
                             </li>
                             @endforeach
                         </ul>
