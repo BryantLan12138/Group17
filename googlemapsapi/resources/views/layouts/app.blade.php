@@ -235,11 +235,11 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto smooth-scroll">
+                {{-- <ul class="navbar-nav mr-auto smooth-scroll">
                     <a class="nav-link" href="{{ url('/about')}}">
                         About us
                     </a>
-                </ul>
+                </ul> --}}
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto"> 
@@ -342,8 +342,12 @@
 
                         <!-- Description -->
                         <h4 class="white-text my-4">Why rent if you can share?</h4>
-                        <button type="button" class="btn btn-outline-white">Read more<i class="fa fa-book ml-2"></i></button>
-
+                        <button type="button" class="btn btn-outline-white" data-toggle="collapse" data-target="#aboutus" aria-expanded="false" aria-controls="aboutus">Read more<i class="fa fa-book ml-2"></i></button>
+                        <div class="collapse" id="aboutus">
+                            <div class="card text-white bg-transparent mb-3" style="max-width: 18rem;">
+                                Carabc services provide cars on demand, pick the nearest car from your location anytime anywhere from our app, and no parking hassles when done.
+                            </div>
+                          </div>
                     </div>
 
                 </div>
