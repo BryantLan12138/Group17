@@ -193,24 +193,24 @@
                     </div>
                 </div>
                 <a id="alert_button" onclick="Alert.render('Booking expired, please book again!')"></a>
+                <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button>
+                <div>Transaction closes in <span id="time">15:00</span> minutes!</div>   
                 <!-- alert button html end -->
                 <form method="POST" action="{{ route('cancel_booking',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="status" class="form-control" value="available">
-                    <button id="cancel" class="btn btn-light btn-sm float-right" type="submit" name="submit">Cancel booking</button>
+                    <button id="cancel" class="btn btn-light btn-sm bg-danger float-right" type="submit" name="submit">Cancel booking</button>
                 </form>
-
-
-                <div>Transaction closes in <span id="time">15:00</span> minutes!</div>
                 <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="status" class="form-control" value="booked">
                     <button onclick="stopTiming();" class="btn btn-light btn-sm float-right" type="submit" name="submit">Confirm</button>
+                    
                 </form>
                 <script>
                     window.onload = function() {
                         //set timer to 15 mins
-                        var fifteenMinutes = 10, //60 * 15,
+                        var fifteenMinutes = 60 * 15, //60 * 15,
                             display = document.querySelector('#time');
 
                         startTimer(fifteenMinutes, display);
@@ -299,7 +299,7 @@
                 </form>
                 @endif
                 <button onclick="getLocation();" data-role="button" id="find" class="btn btn-secondary btn-sm" style="display: none">Find Your Location!</button>&nbsp;&nbsp;
-                <button value="{{$cars->address}}" id="Destination" class="btn btn-info btn-sm" style="float: right">Direct Me!</button>
+                
             </div>
             <div class="card card-body">
                 <p class="card-text" id="carlist">
