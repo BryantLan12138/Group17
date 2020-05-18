@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Feedback;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -71,12 +72,10 @@ class AdminController extends Controller
     public function car_update(Request $request, $carId){
         $edit_car = Car::find($carId);
         $edit_car -> licenseplate = $request->input('licenseplate');
-        $edit_car -> address = $request->input('address');
         $edit_car -> unit_price = $request->input('unit_price');
 
         $edit_car->save();
 
-        //return view('admin.car_edit')->with('cars',$edit_car)->with('success','Updated successfully!');
         return redirect('admin/cars_management')->with('success','Updated successfully!');
 
     }
@@ -90,6 +89,10 @@ class AdminController extends Controller
         // }
 
         return redirect('admin/cars_management')->with('success','Deleted successfully!');
+    }
+
+    public function feedback(){
+        return view('admin.feedback')->with('feedbacks', Feedback::all()->sortByDesc('created_at'));
     }
 
 

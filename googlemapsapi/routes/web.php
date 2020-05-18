@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth' => 'isadmin']], function()
     Route::post('/admin/add_car','AdminController@car_store')->name('car_store');
     Route::post('/admin/car_edit/{cars}','AdminController@car_update')->name('car_update');
     Route::get('/admin/car_delete/{cars}','AdminController@car_delete');
+    Route::get('/admin/feedback','AdminController@feedback');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

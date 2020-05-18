@@ -16,7 +16,7 @@
                 <div class="card-body">
 
 
-                Successfully canceled! <br>
+                Booking canceled! <br>
                 Directing to home page in 2 seconds...
                 </div>
             </div>

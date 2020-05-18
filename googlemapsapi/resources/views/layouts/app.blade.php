@@ -287,6 +287,7 @@
                                 <!-- Dropdown list item for admin management -->
                                 @if(Auth::user()->is_admin)
                                 <a class="dropdown-item" href="/admin">{{ __('Admin Management') }}</a>
+                                <a class="dropdown-item" href="/admin/feedback">{{ __('Feedback') }}</a>
                                 @endif
                                 <!-- Dropdown list item for directing user to report -->
                                 @if(Auth::user()->is_admin == false)
