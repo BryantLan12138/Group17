@@ -35,7 +35,8 @@ class MapController extends Controller
         {
             $updateData = [
                 'latitude' =>  $request->mmlat,
-                'longitude' =>  $request->mmlng
+                'longitude' =>  $request->mmlng,
+                'address' =>  $request->address
             ];
             
             DB::table('gmaps_geocache')
@@ -100,7 +101,7 @@ class MapController extends Controller
         $dbcar_new= DB::table('cars');
         $data_new = $dbcar_new -> get();
         foreach($data_new as $key => $value){
-            if($value -> id == substr($_SERVER['REQUEST_URI'], -1)){
+            if($value -> id == substr($_SERVER['REQUEST_URI'], -1 && $value -> id !=10)){
             $marker_new['position'] = $value -> address;
             $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
             $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
@@ -108,6 +109,14 @@ class MapController extends Controller
             $marker_new['animation'] = 'DROP';
             $gmap_new->add_marker($marker_new);
             }
+            if($value -> id == 10){
+                $marker_new['position'] = $value -> address;
+                $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
+                $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
+                $marker_new['draggable'] = FALSE;
+                $marker_new['animation'] = 'DROP';
+                $gmap_new->add_marker($marker_new);
+                }
          }
 
         $map_new = $gmap_new->create_map();
@@ -134,11 +143,11 @@ class MapController extends Controller
         $car -> status = $request->input('status');
 
         $car ->save();
-
+        $geocache = DB::table('gmaps_geocache')->where('id', $carId)->first();
         $order = new Order();
         $order-> hour = 0;
         $order-> minute = 0;
-        $order -> start_location = $car -> address;
+        $order -> start_location = $geocache -> address;
         $order -> end_location = '';
 
         $order -> save();
@@ -157,13 +166,14 @@ class MapController extends Controller
         $car = Car::find($carId);
         $car -> status = $request->input('status');
         
-        $car ->save();
-
+       
+        $geocache = DB::table('gmaps_geocache')->where('id', $carId)->first();
         $order = Order::find(session('order_id'));
         $order-> hour = $request ->input('hour');
         $order-> minute = $request ->input('minute');
-        $order -> end_location = 'The Pancake Parlour';
-
+        $order -> end_location = $geocache -> address;
+        $car -> address = $geocache -> address;
+        $car ->save();
         $order -> save();
 
 

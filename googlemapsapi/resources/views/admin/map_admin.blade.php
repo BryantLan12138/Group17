@@ -62,10 +62,10 @@ function fetch_data2()
 });
 
 var line;
-
+var geocoder = new google.maps.Geocoder;
 var map;
 var pointDistances;
-
+var failed = "failed";
 function initialize() {
     var mapOptions = {
         zoom: 13,
@@ -110,6 +110,8 @@ function getRandom (n, m) {
         var mmlat = mlat[j];
         var mmlng = mlng[j];
         var lineCoordinates = new Array();
+        var address ='';
+        
 
         // console.log(mmlat);
         // console.log(mmlng);
@@ -121,12 +123,18 @@ function getRandom (n, m) {
             mmlng = +mmlng + +rdm2;
             lineCoordinates.push(new google.maps.LatLng(mmlat, mmlng));
         }
-        mmlat=mmlat.toFixed(7);
+                    mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 1;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log("12345");
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -137,6 +145,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -145,10 +154,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
-    
-    
-    // point distances from beginning in %
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     var sphericalLib = google.maps.geometry.spherical;
 
     pointDistances = [];
@@ -188,6 +197,7 @@ function getRandom (n, m) {
         var mmlat = mlat[j];
         var mmlng = mlng[j];
         var lineCoordinates = new Array();
+        var id=2;
         for(i=0; i<40;i++)
         {
             rdm = getRandom(-10,10)/4000;
@@ -198,10 +208,14 @@ function getRandom (n, m) {
         }
                     mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
-                    var id = 2;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -212,6 +226,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -220,6 +235,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     // point distances from beginning in %
     var sphericalLib = google.maps.geometry.spherical;
 
@@ -258,6 +277,7 @@ function getRandom (n, m) {
     
     }
     if(j==2){
+        var id = 3;
         var mmlat = mlat[j];
         var mmlng = mlng[j];
         var lineCoordinates = new Array();
@@ -272,10 +292,15 @@ function getRandom (n, m) {
     
                     mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
-                    var id = 3;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                   
+            geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -286,6 +311,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -294,7 +320,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     // point distances from beginning in %
     var sphericalLib = google.maps.geometry.spherical;
 
@@ -349,9 +378,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 4;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -362,6 +396,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -370,7 +405,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     // point distances from beginning in %
     var sphericalLib = google.maps.geometry.spherical;
 
@@ -425,9 +463,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 5;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -438,6 +481,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -446,8 +490,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
-    // point distances from beginning in %
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     var sphericalLib = google.maps.geometry.spherical;
 
     pointDistances = [];
@@ -501,9 +547,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 6;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -514,6 +565,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -522,7 +574,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     // point distances from beginning in %
     var sphericalLib = google.maps.geometry.spherical;
 
@@ -577,9 +632,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 7;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -590,6 +650,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -598,8 +659,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
-    // point distances from beginning in %
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     var sphericalLib = google.maps.geometry.spherical;
 
     pointDistances = [];
@@ -653,9 +716,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 8;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -666,6 +734,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -674,8 +743,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
-    // point distances from beginning in %
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     var sphericalLib = google.maps.geometry.spherical;
 
     pointDistances = [];
@@ -729,9 +800,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 9;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -742,6 +818,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -750,8 +827,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
-    // point distances from beginning in %
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     var sphericalLib = google.maps.geometry.spherical;
 
     pointDistances = [];
@@ -805,9 +884,14 @@ function getRandom (n, m) {
         mmlat=mmlat.toFixed(7);
                     mmlng=mmlng.toFixed(7);
                     var id = 10;
-            // var _token = $('input[name="_token"]').val();
-            // var token = $('meta[name="csrf-token"]').attr('content');
-                $.ajaxSetup({
+                    geocodeLatLng(geocoder);
+            function geocodeLatLng(geocoder) {
+                var latlng = {lat: parseFloat(mmlat), lng: parseFloat(mmlng)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === 'OK') {
+                        address = results[0].formatted_address;
+                        console.log(results[0].formatted_address)
+                        $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -818,6 +902,7 @@ function getRandom (n, m) {
                     data:{
                         mmlat:mmlat, 
                         mmlng:mmlng, 
+                        address:address,
                         id:id, 
                         // _token: _token
                     },
@@ -826,8 +911,10 @@ function getRandom (n, m) {
                         $('#message').html(data);
                     }
                 })
-    
-    // point distances from beginning in %
+                    }else{
+                        console.log(failed);
+                    }
+            })}
     var sphericalLib = google.maps.geometry.spherical;
 
     pointDistances = [];
