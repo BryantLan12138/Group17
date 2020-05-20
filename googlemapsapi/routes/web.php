@@ -22,6 +22,10 @@ Route::group(['middleware' => ['auth' => 'isadmin']], function()
     Route::get('/admin/orders_management','AdminController@orders_management');
     Route::get('/admin/users_management','AdminController@users_management');
     Route::get('/admin/cars_management/{cars}', 'AdminController@car_edit');
+    Route::get('/admin/map_admin','MapController@map_admin');
+    Route::get('/admin/map_admin/fetch_data','MapController@fetch_data');
+    Route::get('/admin/map_admin/fetch_data2','MapController@fetch_data2');
+    Route::post('/admin/map_admin/update_data', 'MapController@update_data')->name('MapController.update_data');
     Route::get('/admin/add_car','AdminController@add_car');
     Route::post('/admin/add_car','AdminController@car_store')->name('car_store');
     Route::post('/admin/car_edit/{cars}','AdminController@car_update')->name('car_update');

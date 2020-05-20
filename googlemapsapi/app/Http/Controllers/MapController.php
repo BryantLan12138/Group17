@@ -12,6 +12,39 @@ use App\Feedback;
 
 class MapController extends Controller
 {
+    function fetch_data(Request $request)
+    {
+        if($request->ajax())
+        {
+            $data = DB::table('cars')->orderBy('id')->get();
+            echo json_encode($data);
+        }
+    }
+    function fetch_data2(Request $request)
+    {
+        if($request->ajax())
+        {
+            $data2 = DB::table('gmaps_geocache')->orderBy('id')->get();
+            echo json_encode($data2);
+        }
+    }
+
+    function update_data(Request $request)
+    {
+        if($request->ajax())
+        {
+            $updateData = [
+                'latitude' =>  $request->mmlat,
+                'longitude' =>  $request->mmlng
+            ];
+            
+            DB::table('gmaps_geocache')
+                ->where('id', $request->id)
+                ->update($updateData);
+                
+            echo '<div class="alert alert-success">Data Updated</div>';
+        }
+    }
 
     public function map()
     {
@@ -148,6 +181,15 @@ class MapController extends Controller
 
     public function cancelStatus(){
         return view('cancel');
+    }
+    public function map_admin()
+    {
+        //Add carpark marker on map,  fetch data from carpark table in database
+        $admincar= DB::table('cars');
+        $admindata = $admincar -> get();
+        $adminstatus = DB::select('select * from cars');
+        $gmaps_geocache = DB::select('select * from gmaps_geocache');
+        return view('admin.map_admin',compact('map2'))->with('cars', Car::all())->with('gmaps_geocache',$gmaps_geocache);
     }
 
     public function sendFeedback(Request $request){
