@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card card-default">
+            <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">
+                            <li class="list-group-item" >
                                 <img src="{{ asset('image/'.$cars -> image)}}" width="100px" height="auto" alt="{{$cars -> image}}">&nbsp;&nbsp;&nbsp;&nbsp;
                                 Licenseplate: {{$cars -> licenseplate}}&nbsp;&nbsp;&nbsp;&nbsp;
                                 Make: {{$cars -> make}}&nbsp;&nbsp;&nbsp;&nbsp;

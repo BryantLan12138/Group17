@@ -195,7 +195,7 @@
             {!! $map['html'] !!}
         </div>
 
-        <hr class="hr-light">
+        
 
 
         <!--Section: Contact v.2-->

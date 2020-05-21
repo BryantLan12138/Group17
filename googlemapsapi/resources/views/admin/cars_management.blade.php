@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card card-default">
+            <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
                     Cars 
                     @if($message = Session::get('success'))
@@ -13,11 +13,11 @@
                         <p>{{$message}}</p>
                     </div>
                     @endif
-                    &nbsp;&nbsp;&nbsp;<a href="/admin/add_car" class="btn btn-dark float-right">Add a new car</a>&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;<a href="/admin/add_car" class="btn btn-light float-right">Add a new car</a>&nbsp;&nbsp;&nbsp;
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($cars as $car)
-                            <li class="list-group-item"> 
+                            <li class="list-group-item" style="color: #ffffff; background-color: #201a1a"> 
                                 <img src="{{ asset('image/'.$car -> image)}}" width="100px" height="auto" alt="{{$car -> image}}">&nbsp;&nbsp;&nbsp;&nbsp;
                                 Licenseplate: {{$car -> licenseplate}}&nbsp;&nbsp;&nbsp;&nbsp;
                                 Make: {{$car -> make}}&nbsp;&nbsp;&nbsp;&nbsp;

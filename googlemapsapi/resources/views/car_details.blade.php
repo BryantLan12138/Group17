@@ -204,7 +204,7 @@
                 <form method="POST" action="{{ route('status_booked',$cars->id) }}" enctype="multipart/form-data" class="float-right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="status" class="form-control" value="booked">
-                    <button onclick="stopTiming();" class="btn btn-light btn-sm float-right" type="submit" name="submit">Confirm</button>
+                    <button onclick="stopTiming();" class="btn btn-light btn-sm float-right mr-1" type="submit" name="submit">Confirm</button>
                     
                 </form>
                 <script>

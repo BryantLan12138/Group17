@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-dark mb-3">
                 <div class="card-header">Add a new car</div>
                 <br>
                 @if(count($errors)>0)
@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                            <button type="submit" name="submit" class="btn btn-dark">Save </button>
+                            <button type="submit" name="submit" class="btn btn-light">Save </button>
                             </div>
                         </div>
                     </form>

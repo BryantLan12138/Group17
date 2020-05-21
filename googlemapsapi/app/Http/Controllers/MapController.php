@@ -199,7 +199,7 @@ class MapController extends Controller
         $admindata = $admincar -> get();
         $adminstatus = DB::select('select * from cars');
         $gmaps_geocache = DB::select('select * from gmaps_geocache');
-        return view('admin.map_admin',compact('map2'))->with('cars', Car::all())->with('gmaps_geocache',$gmaps_geocache);
+        return view('admin.map_admin')->with('cars', Car::all())->with('gmaps_geocache',$gmaps_geocache);
     }
 
     public function sendFeedback(Request $request){
