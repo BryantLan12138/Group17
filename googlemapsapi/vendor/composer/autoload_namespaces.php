@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'PayPal' => array($vendorDir . '/paypal/rest-api-sdk-php/lib'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'N98\\JUnitXml' => array($vendorDir . '/n98/junit-xml/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
 );

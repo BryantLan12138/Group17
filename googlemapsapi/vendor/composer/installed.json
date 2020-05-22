@@ -1710,6 +1710,44 @@
         ]
     },
     {
+        "name": "n98/junit-xml",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cmuench/junit-xml.git",
+            "reference": "7df0dbaf413fcaa1a63ffbcef18654e7a4cceb46"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cmuench/junit-xml/zipball/7df0dbaf413fcaa1a63ffbcef18654e7a4cceb46",
+            "reference": "7df0dbaf413fcaa1a63ffbcef18654e7a4cceb46",
+            "shasum": ""
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2013-11-23T13:11:26+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "N98\\JUnitXml": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Münch",
+                "email": "c.muench@netz98.de"
+            }
+        ],
+        "description": "JUnit XML Document generation library"
+    },
+    {
         "name": "nesbot/carbon",
         "version": "2.32.2",
         "version_normalized": "2.32.2.0",
@@ -2122,6 +2160,74 @@
         ]
     },
     {
+        "name": "overtrue/phplint",
+        "version": "2.0.2",
+        "version_normalized": "2.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/overtrue/phplint.git",
+            "reference": "8b1e27094c82ad861ff7728cf50d349500c39fe2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/overtrue/phplint/zipball/8b1e27094c82ad861ff7728cf50d349500c39fe2",
+            "reference": "8b1e27094c82ad861ff7728cf50d349500c39fe2",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "n98/junit-xml": "1.0.0",
+            "php": ">=5.5.9",
+            "symfony/console": "^3.2|^4.0|^5.0",
+            "symfony/finder": "^3.0|^4.0|^5.0",
+            "symfony/process": "^3.0|^4.0|^5.0",
+            "symfony/yaml": "^3.0|^4.0|^5.0"
+        },
+        "require-dev": {
+            "brainmaestro/composer-git-hooks": "^2.7",
+            "friendsofphp/php-cs-fixer": "^2.16",
+            "jakub-onderka/php-console-highlighter": "^0.3.2 || ^0.4"
+        },
+        "time": "2020-04-23T02:04:34+00:00",
+        "bin": [
+            "bin/phplint"
+        ],
+        "type": "library",
+        "extra": {
+            "hooks": {
+                "pre-commit": [
+                    "composer fix-style"
+                ],
+                "pre-push": [
+                    "composer check-style"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Overtrue\\PHPLint\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "overtrue",
+                "email": "anzhengchao@gmail.com"
+            }
+        ],
+        "description": "`phplint` is a tool that can speed up linting of php files by running several lint processes at once.",
+        "keywords": [
+            "check",
+            "lint",
+            "phplint",
+            "syntax"
+        ]
+    },
+    {
         "name": "paragonie/random_compat",
         "version": "v9.99.99",
         "version_normalized": "9.99.99.0",
@@ -2217,7 +2323,8 @@
             "paypal",
             "rest",
             "sdk"
-        ]
+        ],
+        "abandoned": true
     },
     {
         "name": "phar-io/manifest",
@@ -4370,6 +4477,59 @@
         "homepage": "https://github.com/sebastianbergmann/version"
     },
     {
+        "name": "squizlabs/php_codesniffer",
+        "version": "3.5.5",
+        "version_normalized": "3.5.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+            "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
+            "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
+            "shasum": ""
+        },
+        "require": {
+            "ext-simplexml": "*",
+            "ext-tokenizer": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+        },
+        "time": "2020-04-17T01:09:41+00:00",
+        "bin": [
+            "bin/phpcs",
+            "bin/phpcbf"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Greg Sherwood",
+                "role": "lead"
+            }
+        ],
+        "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+        "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
+        "keywords": [
+            "phpcs",
+            "standards"
+        ]
+    },
+    {
         "name": "swiftmailer/swiftmailer",
         "version": "v6.2.3",
         "version_normalized": "6.2.3.0",
@@ -6096,6 +6256,81 @@
             "debug",
             "dump"
         ],
+        "funding": [
+            {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+            },
+            {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+            }
+        ]
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v5.0.8",
+        "version_normalized": "5.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/yaml.git",
+            "reference": "482fb4e710e5af3e0e78015f19aa716ad953392f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/yaml/zipball/482fb4e710e5af3e0e78015f19aa716ad953392f",
+            "reference": "482fb4e710e5af3e0e78015f19aa716ad953392f",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.2.5",
+            "symfony/polyfill-ctype": "~1.8"
+        },
+        "conflict": {
+            "symfony/console": "<4.4"
+        },
+        "require-dev": {
+            "symfony/console": "^4.4|^5.0"
+        },
+        "suggest": {
+            "symfony/console": "For validating YAML files using the lint command"
+        },
+        "time": "2020-04-28T17:58:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Yaml\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "https://symfony.com",
         "funding": [
             {
                 "url": "https://symfony.com/sponsor",
