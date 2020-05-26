@@ -85,7 +85,7 @@ class MapController extends Controller
 
     public function showCars($carId)
     {   
-        $config_new['center'] = 'Melbourne, au';
+        $config_new['center'] = 'auto';
         $config_new['zoom'] = '13';
         $config_new['map_height'] = '300px';
         $config_new['map_width'] = '500px';
@@ -99,24 +99,29 @@ class MapController extends Controller
 
         //Add carpark marker on map,  fetch data from carpark table in database
         $dbcar_new= DB::table('cars');
+        $dblocation= DB::table('gmaps_geocache');
         $data_new = $dbcar_new -> get();
-        foreach($data_new as $key => $value){
-            if($value -> id == substr($_SERVER['REQUEST_URI'], -1 && $value -> id !=10)){
+        $data_location=$dblocation -> get();
+        $url=$_SERVER['REQUEST_URI'];
+        $idnumber=explode("/",$url);
+
+        foreach($data_location as $key => $value){
+            
+            if($value -> id == $idnumber[2]){
             $marker_new['position'] = $value -> address;
-            $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
             $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
             $marker_new['draggable'] = FALSE;
             $marker_new['animation'] = 'DROP';
             $gmap_new->add_marker($marker_new);
             }
-            if($value -> id == 10){
-                $marker_new['position'] = $value -> address;
-                $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
-                $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-                $marker_new['draggable'] = FALSE;
-                $marker_new['animation'] = 'DROP';
-                $gmap_new->add_marker($marker_new);
-                }
+            // elseif($value -> id == 10){
+            //     $marker_new['position'] = $value -> address;
+            //     $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
+            //     $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
+            //     $marker_new['draggable'] = FALSE;
+            //     $marker_new['animation'] = 'DROP';
+            //     $gmap_new->add_marker($marker_new);
+            //     }
          }
 
         $map_new = $gmap_new->create_map();
