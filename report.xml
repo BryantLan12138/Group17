@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="32" assertions="68" errors="0" warnings="0" failures="0" skipped="0" time="0.877535">
+    <testsuite name="Unit" tests="28" assertions="64" errors="0" warnings="0" failures="0" skipped="0" time="0.850598">
+      <testsuite name="Tests\Unit\AboutTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\AboutTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.088108">
+        <testcase name="testEnterAboutPage" class="Tests\Unit\AboutTest" classname="Tests.Unit.AboutTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\AboutTest.php" line="16" assertions="2" time="0.088108"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\AdminTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\AdminTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.071576">
+        <testcase name="testAdminLogin" class="Tests\Unit\AdminTest" classname="Tests.Unit.AdminTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\AdminTest.php" line="12" assertions="1" time="0.065798"/>
+        <testcase name="testAdminLogout" class="Tests\Unit\AdminTest" classname="Tests.Unit.AdminTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\AdminTest.php" line="24" assertions="1" time="0.005778"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\CarDetailsTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarDetailsTest.php" tests="2" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.015536">
+        <testcase name="testCarDetails" class="Tests\Unit\CarDetailsTest" classname="Tests.Unit.CarDetailsTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarDetailsTest.php" line="16" assertions="2" time="0.009268"/>
+        <testcase name="book_cancel_page" class="Tests\Unit\CarDetailsTest" classname="Tests.Unit.CarDetailsTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarDetailsTest.php" line="26" assertions="2" time="0.006267"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\CarListTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarListTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.016247">
+        <testcase name="testCarList" class="Tests\Unit\CarListTest" classname="Tests.Unit.CarListTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarListTest.php" line="20" assertions="2" time="0.016247"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\CarTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarTest.php" tests="3" assertions="6" errors="0" warnings="0" failures="0" skipped="0" time="0.044832">
+        <testcase name="testCarList" class="Tests\Unit\CarTest" classname="Tests.Unit.CarTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarTest.php" line="19" assertions="3" time="0.016321"/>
+        <testcase name="testCarDetail" class="Tests\Unit\CarTest" classname="Tests.Unit.CarTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarTest.php" line="46" assertions="1" time="0.017193"/>
+        <testcase name="testCarBook" class="Tests\Unit\CarTest" classname="Tests.Unit.CarTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\CarTest.php" line="60" assertions="2" time="0.011318"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DbTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\DbTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.304636">
+        <testcase name="testDatabase" class="Tests\Unit\DbTest" classname="Tests.Unit.DbTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\DbTest.php" line="17" assertions="1" time="0.304636"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\ForgotPasswordTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\ForgotPasswordTest.php" tests="5" assertions="11" errors="0" warnings="0" failures="0" skipped="0" time="0.066477">
+        <testcase name="testResetPage" class="Tests\Unit\ForgotPasswordTest" classname="Tests.Unit.ForgotPasswordTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\ForgotPasswordTest.php" line="23" assertions="1" time="0.015960"/>
+        <testcase name="testSendEmail" class="Tests\Unit\ForgotPasswordTest" classname="Tests.Unit.ForgotPasswordTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\ForgotPasswordTest.php" line="33" assertions="2" time="0.010435"/>
+        <testcase name="testShowPasswordResetRequestPage" class="Tests\Unit\ForgotPasswordTest" classname="Tests.Unit.ForgotPasswordTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\ForgotPasswordTest.php" line="41" assertions="4" time="0.007243"/>
+        <testcase name="testSubmitPasswordResetRequestInvalidEmail" class="Tests\Unit\ForgotPasswordTest" classname="Tests.Unit.ForgotPasswordTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\ForgotPasswordTest.php" line="51" assertions="2" time="0.012883"/>
+        <testcase name="testSubmitPasswordResetRequestEmailNotFound" class="Tests\Unit\ForgotPasswordTest" classname="Tests.Unit.ForgotPasswordTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\ForgotPasswordTest.php" line="65" assertions="2" time="0.019956"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" tests="6" assertions="23" errors="0" warnings="0" failures="0" skipped="0" time="0.126853">
+        <testcase name="testLoginPage" class="Tests\Unit\LoginTest" classname="Tests.Unit.LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" line="22" assertions="1" time="0.018949"/>
+        <testcase name="testCreateUser" class="Tests\Unit\LoginTest" classname="Tests.Unit.LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" line="33" assertions="3" time="0.019912"/>
+        <testcase name="testUserCannotViewALoginPageWhenAuthenticated" class="Tests\Unit\LoginTest" classname="Tests.Unit.LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" line="51" assertions="2" time="0.019085"/>
+        <testcase name="testUserCanLoginWithCorrectCredentials" class="Tests\Unit\LoginTest" classname="Tests.Unit.LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" line="60" assertions="5" time="0.024242"/>
+        <testcase name="testUserCannotLoginWithIncorrectPassword" class="Tests\Unit\LoginTest" classname="Tests.Unit.LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" line="75" assertions="7" time="0.022741"/>
+        <testcase name="testRememberMeFunctionality" class="Tests\Unit\LoginTest" classname="Tests.Unit.LoginTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\LoginTest.php" line="93" assertions="5" time="0.021923"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\PayTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\PayTest.php" tests="3" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.045348">
+        <testcase name="testPaypalPay" class="Tests\Unit\PayTest" classname="Tests.Unit.PayTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\PayTest.php" line="20" assertions="1" time="0.032495"/>
+        <testcase name="testPaymentSuccess" class="Tests\Unit\PayTest" classname="Tests.Unit.PayTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\PayTest.php" line="31" assertions="1" time="0.006537"/>
+        <testcase name="testCarDetails" class="Tests\Unit\PayTest" classname="Tests.Unit.PayTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\PayTest.php" line="40" assertions="2" time="0.006316"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\RegisterTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\RegisterTest.php" tests="3" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.051630">
+        <testcase name="testRegisterPage" class="Tests\Unit\RegisterTest" classname="Tests.Unit.RegisterTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\RegisterTest.php" line="17" assertions="1" time="0.007337"/>
+        <testcase name="testLoginRegisteredUser" class="Tests\Unit\RegisterTest" classname="Tests.Unit.RegisterTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\RegisterTest.php" line="27" assertions="1" time="0.020494"/>
+        <testcase name="testRegisterCreatesAndAuthenticatesAUser" class="Tests\Unit\RegisterTest" classname="Tests.Unit.RegisterTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\RegisterTest.php" line="41" assertions="6" time="0.023799"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\UserTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\UserTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.019357">
+        <testcase name="testUserRegister" class="Tests\Unit\UserTest" classname="Tests.Unit.UserTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Unit\UserTest.php" line="18" assertions="1" time="0.019357"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature" tests="4" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.026936">
+      <testsuite name="Tests\Feature\ForgotPasswordFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\ForgotPasswordFeatureTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.006842">
+        <testcase name="testEnterPasswordResetPage" class="Tests\Feature\ForgotPasswordFeatureTest" classname="Tests.Feature.ForgotPasswordFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\ForgotPasswordFeatureTest.php" line="16" assertions="1" time="0.006842"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\LoginFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\LoginFeatureTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.006869">
+        <testcase name="testEnterLoginPage" class="Tests\Feature\LoginFeatureTest" classname="Tests.Feature.LoginFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\LoginFeatureTest.php" line="16" assertions="1" time="0.006869"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\RegisterFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\RegisterFeatureTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.006889">
+        <testcase name="testEnterRegisterPage" class="Tests\Feature\RegisterFeatureTest" classname="Tests.Feature.RegisterFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\RegisterFeatureTest.php" line="16" assertions="1" time="0.006889"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\SendEmailFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\SendEmailFeatureTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.006337">
+        <testcase name="testEnterSendEmailPage" class="Tests\Feature\SendEmailFeatureTest" classname="Tests.Feature.SendEmailFeatureTest" file="E:\xampp\htdocs\test\googlemapsapi\googlemapsapi\tests\Feature\SendEmailFeatureTest.php" line="16" assertions="1" time="0.006337"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
