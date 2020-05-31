@@ -7,6 +7,7 @@ jobs: # a collection of steps
     working_directory: ~/laravel # directory where steps will run
     steps: # a set of executable commands
       - checkout # special step to check out source code to working directory
+
       - run: sudo apt-get -y install nano
       - run: sudo apt install -y libsqlite3-dev zlib1g-dev
       - run: sudo docker-php-ext-install zip
@@ -33,6 +34,9 @@ jobs: # a collection of steps
             - node_modules
       - run: touch storage/testing.sqlite 
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
+      - run: composer require --dev phpunit/phpunit ^9
+      - run: php artisan db:seed
+      - run: ./vendor/bin/phpunit
       - run: ./vendor/bin/codecept build
       - run: ./vendor/bin/codecept run
       - store_test_results:
