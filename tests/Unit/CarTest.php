@@ -65,7 +65,7 @@ class CarTest extends TestCase
             $car->status = 'booked';
             $car->save();
 
-            $geocache = DB::table('gmaps_geocache')->where('id', $car->id)->first();
+            $geocache = DB::table('cars')->where('id', $car->id)->first();
             $order = new Order();
             $order->hour = 0;
             $order->minute = 0;
@@ -76,7 +76,7 @@ class CarTest extends TestCase
 
             $this->assertTrue($order instanceof Order);
         } else {
-            $geocache = DB::table('gmaps_geocache')->where('id', $car->id)->first();
+            $geocache = DB::table('cars')->where('id', $car->id)->first();
 
             $order = Order::where('start_location', $geocache->address)->get();
 
