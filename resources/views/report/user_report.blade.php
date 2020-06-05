@@ -61,8 +61,8 @@
                             <td>{{$reports[0] -> licenseplate}}</td>
                             <td>{{$reports[0] -> make}} | {{$reports[0] -> model}}</td>
                         </tr>
-                        <tr><th></th><th></th><th colspan="2"><hr>Total amount</th></tr>
-                        <tr><td></td><td></td><td colspan="2">AU$ <?php echo round(($reports[0]->unit_price*($reports[0]->minute/60)+$reports[0]->unit_price*$reports[0]->hour)*1.1,2);?><br>( 10.00% Admin Fees & GST inclusive: AU$ <?php echo $gst;?> )</td></tr>
+                        <tr><th></th><th><hr>Payment status</th><th colspan="2"><hr>Total amount</th></tr>
+                        <tr><td></td><td>{{\App\Order::where(['id' => $reports[0] -> order_id])->first()->status}}</td><td colspan="2">AU$ <?php echo round(($reports[0]->unit_price*($reports[0]->minute/60)+$reports[0]->unit_price*$reports[0]->hour)*1.1,2);?><br>( 10.00% Admin Fees & GST inclusive: AU$ <?php echo $gst;?> )</td></tr>
 
                     </table>
 

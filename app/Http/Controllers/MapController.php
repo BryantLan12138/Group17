@@ -154,7 +154,7 @@ class MapController extends Controller
         $order-> minute = 0;
         $order -> start_location = $geocache -> address;
         $order -> end_location = '';
-
+        $order-> status = 'unpaid';
         $order -> save();
 
         session(['order_id'=>$order->id]);
@@ -179,6 +179,7 @@ class MapController extends Controller
         $order -> end_location = $geocache -> address;
         $car -> address = $geocache -> address;
         $car ->save();
+        $order-> status = 'unpaid';
         $order -> save();
 
 

@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('minute');
             $table->String('start_location');
             $table->String('end_location');
+            $table->String('status');
             $table->timestamps();
         });
     }

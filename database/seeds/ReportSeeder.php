@@ -24,9 +24,9 @@ class ReportSeeder extends Seeder
 
         DB::table('orders')->delete();
         $order = [
-            ['id'=>1,'hour' => 5,'minute' => 15, 'start_location' => 'State Library Victoria, Melbourne, au','end_location' => 'National Gallery of Victoria, Melbourne, au','created_at'=>'2020-04-21 12:19:41','updated_at'=>'2020-04-21 14:33:04'],
-            ['id'=>2,'hour' => 6,'minute' => 17, 'start_location' => 'National Gallery of Victoria, Melbourne, au','end_location' => 'State Library Victoria, Melbourne, au','created_at'=>'2020-04-21 08:33:04','updated_at'=>'2020-04-21 14:33:04'],
-            ['id'=>3,'hour' => 7,'minute' => 23, 'start_location' => 'State Library Victoria, Melbourne, au','end_location' => 'National Gallery of Victoria, Melbourne, au','created_at'=>'2020-04-21 14:17:56','updated_at'=>'2020-04-21 14:33:04'],
+            ['id'=>1,'hour' => 5,'minute' => 15, 'start_location' => 'State Library Victoria, Melbourne, au','end_location' => 'National Gallery of Victoria, Melbourne, au','created_at'=>'2020-04-21 12:19:41','updated_at'=>'2020-04-21 14:33:04','status'=>'unpaid'],
+            ['id'=>2,'hour' => 6,'minute' => 17, 'start_location' => 'National Gallery of Victoria, Melbourne, au','end_location' => 'State Library Victoria, Melbourne, au','created_at'=>'2020-04-21 08:33:04','updated_at'=>'2020-04-21 14:33:04','status'=>'unpaid'],
+            ['id'=>3,'hour' => 7,'minute' => 23, 'start_location' => 'State Library Victoria, Melbourne, au','end_location' => 'National Gallery of Victoria, Melbourne, au','created_at'=>'2020-04-21 14:17:56','updated_at'=>'2020-04-21 14:33:04','status'=>'unpaid'],
         ];
         Order::insert($order);
     }

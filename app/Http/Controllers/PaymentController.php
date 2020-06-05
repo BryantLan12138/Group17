@@ -105,6 +105,9 @@ class PaymentController extends Controller
                     $payment->currency = env('PAYPAL_CURRENCY');
                     $payment->payment_status = $arr_body['state'];
                     $payment->save();
+                    $order = Order::find(session('order_id'));
+                    $order -> status = 'paid';
+                    $order -> save();
                 }
                 return view('success');
                 // return "Payment is successful. Your transaction id is: ". $arr_body['id'];
