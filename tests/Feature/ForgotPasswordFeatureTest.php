@@ -6,16 +6,16 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class UserTest extends TestCase
+class ForgotPasswordFeatureTest extends TestCase
 {
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function testExample()
+    public function testEnterPasswordResetPage()
     {
-        $response = $this->get('/');
+        $response = $this->get('/password/reset');
 
         $response->assertStatus(200);
     }

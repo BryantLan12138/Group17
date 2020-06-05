@@ -2,19 +2,29 @@
 
 namespace Tests\Unit;
 
+use App\User;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
+
     /**
      * A basic unit test example.
      *
      * @return void
      */
-    public function testExample()
+    public function testUserRegister()
     {
-        $this->assertTrue(true);
+        $name = 'foo' . time();
+        $user = User::create([
+            'name' => $name,
+            'email' => $name . '@bar.com',
+            'password' => Hash::make('foobar'),
+        ]);
+
+        $this->assertEquals($name, $user->name);
     }
+
 }
