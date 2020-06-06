@@ -19,9 +19,9 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             if(Auth::user()->is_admin){
-                return redirect('/admin');
+                return redirect()->intended('/admin');
             }
-            return redirect('/home');
+            return Redirect::intended('/car_details/{cars}');
         }
 
         return $next($request);

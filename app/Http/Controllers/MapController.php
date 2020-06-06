@@ -134,6 +134,7 @@ class MapController extends Controller
 
  
         return view('car_details', compact('map_new'))->with('cars',Car::find($carId));
+        return back()->withInput();
     }
 
     public function showRecipt($carId){

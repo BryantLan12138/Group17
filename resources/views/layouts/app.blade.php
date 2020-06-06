@@ -382,7 +382,7 @@
           <div class="col-6 col-md">
             <h5>About</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="about">Team</a></li>
+              <li><a class="text-muted" href="about">Our Team</a></li>
               
             </ul>
           </div>
