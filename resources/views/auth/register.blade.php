@@ -59,17 +59,17 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                
+                                <div id='alertinfo'><br>
+                Your password must be more than 8 digit and include 3 of the following characters:<br>
+                <small>English uppercase characters (A – Z)</small><br>
+                <small>English lowercase characters (a – z)</small><br>
+                <small>Base 10 digits (0 – 9)</small><br>
+                <small>Non-alphanumeric (For example: !, $, #, or %)</small><br>
+                <small>Unicode characters </small>
+                </div>
                             </div>
                         </div>
-                        <div id='alertinfo'>
-                Your password must include 3 of the following rules :<br>
-                English uppercase characters (A – Z)<br>
-                English lowercase characters (a – z)<br>
-                Base 10 digits (0 – 9)<br>
-                Non-alphanumeric (For example: !, $, #, or %)<br>
-                Unicode characters 
-                </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -86,4 +86,7 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+

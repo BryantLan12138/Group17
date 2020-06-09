@@ -12,25 +12,9 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
-    // public function createReport(Request $request)
-    // {
-    //     $report = new Report();
-    //     $report->order_id = $request->input('order_id');
-    //     $report->user_id = $request->input('user_id');
-    //     $report->car_id = $request->input('car_id');
-    //     $report->firstname = $request->input('firstname');
-    //     $report->lastname = $request->input('lastname');
-    //     $report->mobile = $request->input('mobile');
-    //     $report->user_address = $request->input('user_address');
-
-    //     $report->save();
-
-    //     return redirect()->route('user_report', [$report]);
-    // }
-
     public function bookingHistory()
     {
-
+        //For generating booking history table list for user
         //Join two tables
         $reports = DB::table('reports')
             ->leftJoin('orders', 'reports.order_id', '=', 'orders.id')
@@ -45,6 +29,7 @@ class ReportController extends Controller
 
     public function generateReport($orderId)
     {
+        //For generating transaction details with user selected booking history
         //Join two tables
         $user_reports = DB::table('reports')
             ->leftJoin('orders', 'reports.order_id', '=', 'orders.id')

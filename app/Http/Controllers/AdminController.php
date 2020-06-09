@@ -14,7 +14,7 @@ class AdminController extends Controller
         
         return view('admin.admin')->with('cars', Car::all())->with('users', User::all());
     }
-
+    //Admin can view all the cars and select one to update or delete
     public function cars_management(){
         
         return view('admin.cars_management')->with('cars', Car::all());
@@ -36,7 +36,7 @@ class AdminController extends Controller
     public function add_car(){
         return view('admin.add_car');
     }
-
+    //Create new car with required input 
     public function car_store(Request $request){
         $this->validate($request,[
             'licenseplate' => 'required',
@@ -68,7 +68,7 @@ class AdminController extends Controller
     public function car_edit($carId){
         return view('admin.car_edit')->with('cars', Car::find($carId));
     }
-
+    //Update selected car with license plate and unit price, if no data is entered, the original data will be kept
     public function car_update(Request $request, $carId){
         $edit_car = Car::find($carId);
         $edit_car -> licenseplate = $request->input('licenseplate');
@@ -79,7 +79,7 @@ class AdminController extends Controller
         return redirect('admin/cars_management')->with('success','Updated successfully!');
 
     }
-
+    //Delete selected car from database
     public function car_delete($carId){
         $destroy_car = Car::find($carId);
         $destroy_car -> delete();
@@ -90,7 +90,7 @@ class AdminController extends Controller
 
         return redirect('admin/cars_management')->with('success','Deleted successfully!');
     }
-
+    //Admin view feedbacks sent from users, most recent feedback is displayed in top of the list
     public function feedback(){
         return view('admin.feedback')->with('feedbacks', Feedback::all()->sortByDesc('created_at'));
     }

@@ -105,12 +105,8 @@
                 <div class="col-md-8">
 
                     <!-- Description -->
-                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate
-                        hic
-                        provident nulla repellat
-                        facere esse molestiae ipsa labore porro minima quam quaerat rem, natus repudiandae debitis
-                        est
-                        sit pariatur.</p>
+                    <p class="grey-text">In Carabc, you can easily get the location of yourself and the available cars to be shared.
+                     Car details are shown both in the sidebar and google maps, please pick any car you like. </p>
 
                 </div>
                 <!--Grid column-->
@@ -125,10 +121,9 @@
                 <div class="col-md-4 mb-5">
                     <i class="fa fa-camera-retro fa-4x orange-text"></i>
                     <h4 class="my-4 font-weight-bold">Experience</h4>
-                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-                        maiores nam,
-                        aperiam minima
-                        assumenda deleniti hic.</p>
+                    <p class="grey-text">We are doing our best to give customers a brilliant driving experience. 
+                    Each car is perfect and in a good condition with filled fuel tank, so do not worry about driving. 
+                    </p>
                 </div>
                 <!--Grid column-->
 
@@ -136,10 +131,9 @@
                 <div class="col-md-4 mb-1">
                     <i class="fa fa-heart fa-4x orange-text"></i>
                     <h4 class="my-4 font-weight-bold">Happiness</h4>
-                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-                        maiores nam,
-                        aperiam minima
-                        assumenda deleniti hic.</p>
+                    <p class="grey-text">Carabc can help people save time caring for their beloved vehicles, 
+                    We can say goodbye to the troublesome things above.
+                    </p>
                 </div>
                 <!--Grid column-->
 
@@ -147,10 +141,10 @@
                 <div class="col-md-4 mb-1">
                     <i class="fa fa-bicycle fa-4x orange-text"></i>
                     <h4 class="my-4 font-weight-bold">Adventure</h4>
-                    <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-                        maiores nam,
-                        aperiam minima
-                        assumenda deleniti hic.</p>
+                    <p class="grey-text">Carabc can help you to go wherever you want, whenever you want. 
+                    Using our service can save you many troubles,like users don't need to drive by yourself,
+                     user won't drive tired, and user can enjoy the scenery along the way.
+                   </p>
                 </div>
                 <!--Grid column-->
 
