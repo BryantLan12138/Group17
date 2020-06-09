@@ -19,7 +19,7 @@
                     <p>{{ \Session::get('success')}}</p>
                 </div>
                 @endif
-
+                <!-- allows admin to fill the form and updated database -->
                 <div class="card-body">
                     <form method="POST" action="{{ route('car_store') }}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -16,6 +16,7 @@
                     &nbsp;&nbsp;&nbsp;<a href="/admin/add_car" class="btn btn-light float-right">Add a new car</a>&nbsp;&nbsp;&nbsp;
                     <div class="card-body">
                         <ul class="list-group">
+                        <!-- loop to display all the cars from database -->
                             @foreach($cars as $car)
                             <li class="list-group-item" style="color: #ffffff; background-color: #201a1a"> 
                                 <img src="{{ asset('image/'.$car -> image)}}" width="100px" height="auto" alt="{{$car -> image}}">&nbsp;&nbsp;&nbsp;&nbsp;

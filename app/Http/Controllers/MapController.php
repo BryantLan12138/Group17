@@ -12,6 +12,8 @@ use App\Feedback;
 
 class MapController extends Controller
 {
+    //Ajax functions for simulator
+    //fetch data from car table
     function fetch_data(Request $request)
     {
         if($request->ajax())
@@ -20,6 +22,7 @@ class MapController extends Controller
             echo json_encode($data);
         }
     }
+    //fetch data from google maps location table
     function fetch_data2(Request $request)
     {
         if($request->ajax())
@@ -28,7 +31,7 @@ class MapController extends Controller
             echo json_encode($data2);
         }
     }
-
+    //update new locations to google maps table
     function update_data(Request $request)
     {
         if($request->ajax())
@@ -46,7 +49,7 @@ class MapController extends Controller
             echo '<div class="alert alert-success">Data Updated</div>';
         }
     }
-
+    //map on the main page
     public function map()
     {
         $config['center'] = 'auto';
@@ -82,7 +85,7 @@ class MapController extends Controller
 
    
     
-
+    //map on car details page
     public function showCars($carId)
     {   
         $config_new['center'] = 'auto';
@@ -114,14 +117,6 @@ class MapController extends Controller
             $marker_new['animation'] = 'DROP';
             $gmap_new->add_marker($marker_new);
             }
-            // elseif($value -> id == 10){
-            //     $marker_new['position'] = $value -> address;
-            //     $marker_new['infowindow_content'] = "Car no.".$value -> id.", ".$value -> make.", ".$value -> model.", ".$value -> licenseplate;
-            //     $marker_new['icon'] = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
-            //     $marker_new['draggable'] = FALSE;
-            //     $marker_new['animation'] = 'DROP';
-            //     $gmap_new->add_marker($marker_new);
-            //     }
          }
 
         $map_new = $gmap_new->create_map();
@@ -160,14 +155,9 @@ class MapController extends Controller
 
         session(['order_id'=>$order->id]);
 
-        
-        
-       
-        //return view('car_details', compact('map_new2'))->with('cars',Car::find($carId));
-        //return redirect('car_details')->with('cars',Car::find($carId));
         return redirect()->route('status_booked', [$car]);
     }
-
+    //change status available after return
     public function statusAvailable(Request $request, $carId){
         $car = Car::find($carId);
         $car -> status = $request->input('status');
@@ -187,6 +177,7 @@ class MapController extends Controller
         return redirect()->route('status_available', [$car]);
     }
 
+    //change status to available if users cancel the booking
     public function cancelBooking(Request $request, $carId){
         $car = Car::find($carId);
         $car -> status = $request->input('status');
@@ -199,6 +190,8 @@ class MapController extends Controller
     public function cancelStatus(){
         return view('cancel');
     }
+
+    //map for admin page
     public function map_admin()
     {
         //Add carpark marker on map,  fetch data from carpark table in database

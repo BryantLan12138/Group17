@@ -1,25 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<!-- div for order -->
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-default">
-                <div class="card-header">
-                    Orders  
-                    <a href="/admin/orders_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp;
-                    <div class="card-body">
-                        <ul class="list-group">
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div><br> -->
-
 <!-- div for car -->
 <div class="container">
     <div class="row justify-content-center">
@@ -57,7 +37,6 @@
             <div class="card text-white bg-dark mb-3">
                 <div class="card-header">
                     Users
-                    <!-- <a href="/admin/users_management" class="btn btn-dark float-right">Manage</a>&nbsp;&nbsp;&nbsp; -->
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($users as $user)

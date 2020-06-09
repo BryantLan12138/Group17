@@ -32,10 +32,6 @@ function fetch_data()
     carstatus.push(data[count].status);
     console.log(data[count].status);
    };}
-//    ,   complete:function (data) {
-//         var interval = setInterval(5000);
-//             setTimeout(fetch_data, interval);
-//     }
  });
 }
 function fetch_data2()
@@ -53,14 +49,10 @@ function fetch_data2()
    }
    initialize();
   }
-//    ,   complete:function (data) {
-//         var interval = setInterval(1000);
-//                     setTimeout(fetch_data, interval);
-//             }
  });
 }
 });
-
+//draw number icons using svg
 var line;
 var geocoder = new google.maps.Geocoder;
 var map;
@@ -241,7 +233,6 @@ function initialize() {
    if(carstatus[i]=="available"){
        console.log("ava");
     var pos = new google.maps.LatLng(mlat[i],mlng[i]);
-    // console.log(pos);
     markers[i] = new google.maps.Marker({
         position: pos,
         map: map,
@@ -251,7 +242,6 @@ function initialize() {
     });
    }else if(carstatus[i]=="locked"){
     var pos = new google.maps.LatLng(mlat[i],mlng[i]);
-    // console.log(pos);
     markers[i] = new google.maps.Marker({
         position: pos,
         map: map,
@@ -273,10 +263,6 @@ function getRandom (n, m) {
         var mmlng = mlng[j];
         var lineCoordinates = new Array();
         var address ='';
-        
-
-        // console.log(mmlat);
-        // console.log(mmlng);
         for(i=0; i<50;i++)
         {
             rdm = getRandom(-10,10)/3000;
@@ -308,8 +294,7 @@ function getRandom (n, m) {
                         mmlat:mmlat, 
                         mmlng:mmlng, 
                         address:address,
-                        id:id, 
-                        // _token: _token
+                        id:id
                     },
                     success:function(data)
                     {
@@ -327,15 +312,6 @@ function getRandom (n, m) {
     var wholeDist = sphericalLib.computeDistanceBetween(
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
-    
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
-
     line = new google.maps.Polyline({
         path: lineCoordinates,
         strokeColor: '#FF0000',
@@ -385,8 +361,7 @@ function getRandom (n, m) {
                         mmlat:mmlat, 
                         mmlng:mmlng, 
                         address:address,
-                        id:id, 
-                        // _token: _token
+                        id:id,
                     },
                     success:function(data)
                     {
@@ -405,15 +380,6 @@ function getRandom (n, m) {
     var wholeDist = sphericalLib.computeDistanceBetween(
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
-    
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
-
     
     line1 = new google.maps.Polyline({
         path: lineCoordinates,
@@ -487,15 +453,6 @@ function getRandom (n, m) {
     var wholeDist = sphericalLib.computeDistanceBetween(
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
-    
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
-    
 
     line2 = new google.maps.Polyline({
         path: lineCoordinates,
@@ -570,15 +527,8 @@ function getRandom (n, m) {
     var wholeDist = sphericalLib.computeDistanceBetween(
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
-    
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
 
-    // define polyline
-    
+
 
     line3 = new google.maps.Polyline({
         path: lineCoordinates,
@@ -652,13 +602,7 @@ function getRandom (n, m) {
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
     
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
 
-    // define polyline
 
 
     line4 = new google.maps.Polyline({
@@ -734,13 +678,6 @@ function getRandom (n, m) {
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
     
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
 
 
     line5 = new google.maps.Polyline({
@@ -815,13 +752,6 @@ function getRandom (n, m) {
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
     
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
 
 
     line6 = new google.maps.Polyline({
@@ -896,13 +826,6 @@ function getRandom (n, m) {
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
     
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
 
 
     line7 = new google.maps.Polyline({
@@ -977,13 +900,6 @@ function getRandom (n, m) {
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
     
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
 
 
     line8 = new google.maps.Polyline({
@@ -1058,14 +974,6 @@ function getRandom (n, m) {
                         pointZero,
                         lineCoordinates[lineCoordinates.length - 1]);
     
-    // for (var i = 0; i < lineCoordinates.length; i++) {
-    //     pointDistances[i] = 200 * sphericalLib.computeDistanceBetween(
-    //                                     lineCoordinates[i], pointZero) / wholeDist;
-    //     console.log('pointDistances[' + i + ']: ' + pointDistances[i]);
-    // }
-
-    // define polyline
-
 
     line9 = new google.maps.Polyline({
         path: lineCoordinates,
@@ -1297,7 +1205,6 @@ function animateCircle9() {
         
     }, 50);
 }
-// google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </head>
 <title>{{ config('app.name', 'Laravel') }}</title>
