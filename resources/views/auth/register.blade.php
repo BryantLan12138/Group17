@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -44,7 +45,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -58,14 +59,25 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                
                             </div>
                         </div>
-
+                        <div id='alertinfo'>
+                Your password must include 3 of the following rules :<br>
+                English uppercase characters (A – Z)<br>
+                English lowercase characters (a – z)<br>
+                Base 10 digits (0 – 9)<br>
+                Non-alphanumeric (For example: !, $, #, or %)<br>
+                Unicode characters 
+                </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a class="btn btn-link" href="/login">
+                                        {{ __('Already have an account?') }}
+                                    </a>
                             </div>
                         </div>
                     </form>
