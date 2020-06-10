@@ -201,7 +201,7 @@ class MapController extends Controller
         $gmaps_geocache = DB::select('select * from gmaps_geocache');
         return view('admin.map_admin')->with('cars', Car::all())->with('gmaps_geocache',$gmaps_geocache);
     }
-
+    //Users are allowed to send feedbacks
     public function sendFeedback(Request $request){
         $feedback = new Feedback();
         $feedback->name = $request->input('name');

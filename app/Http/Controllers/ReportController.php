@@ -22,7 +22,6 @@ class ReportController extends Controller
             ->leftJoin('users', 'reports.user_id', '=', 'users.id')
             ->select('orders.hour','orders.id', 'orders.minute', 'orders.end_location', 'orders.created_at', 'orders.start_location', 'reports.id', 'reports.user_id', 'reports.car_id', 'reports.order_id', 'reports.firstname', 'reports.lastname', 'reports.mobile', 'reports.user_address', 'cars.id', 'cars.licenseplate', 'cars.unit_price','cars.make', 'cars.model', 'cars.address', 'cars.image', 'users.id', 'users.email', 'users.name')
             ->where('reports.user_id', '=', Auth::user()->id)->get();
-            // dd($reports);
 
         return view('history')->with('reports', $reports);
     }
@@ -37,7 +36,6 @@ class ReportController extends Controller
             ->leftJoin('users', 'reports.user_id', '=', 'users.id')
             ->select('orders.hour','orders.id', 'orders.minute', 'orders.end_location', 'orders.created_at', 'orders.start_location', 'reports.id', 'reports.user_id', 'reports.car_id', 'reports.order_id', 'reports.firstname', 'reports.lastname', 'reports.mobile', 'reports.user_address', 'cars.id', 'cars.licenseplate', 'cars.unit_price','cars.make', 'cars.model', 'cars.address', 'cars.image', 'users.id', 'users.email', 'users.name')
             ->where('reports.order_id', '=', $orderId)->get();
-            // dd($user_reports);
 
         return view('report.user_report')->with('reports', $user_reports);
     }

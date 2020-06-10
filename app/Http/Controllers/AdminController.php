@@ -60,7 +60,6 @@ class AdminController extends Controller
         $newcar->image = $filename; 
 
         $newcar -> save();
-        //return view('admin.add_car')->with('newcar',$newcar)->with('success','Added successfully!');
         return redirect('admin/cars_management')->with('success','Added successfully!');
 
     }
@@ -83,11 +82,6 @@ class AdminController extends Controller
     public function car_delete($carId){
         $destroy_car = Car::find($carId);
         $destroy_car -> delete();
-        // $image_path = 'image/'.Car::find($carId)->get()->image;
-        // if (file_exists($image_path)) {
-        //     @unlink($image_path);
-        // }
-
         return redirect('admin/cars_management')->with('success','Deleted successfully!');
     }
     //Admin view feedbacks sent from users, most recent feedback is displayed in top of the list
