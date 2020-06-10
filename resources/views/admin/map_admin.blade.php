@@ -229,7 +229,7 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
     var markers = [];
     for (var i = 0; i < 10; i++) {
-    
+    //display different color of the markers for different status
    if(carstatus[i]=="available"){
        console.log("ava");
     var pos = new google.maps.LatLng(mlat[i],mlng[i]);
@@ -251,6 +251,7 @@ function initialize() {
 
    }
 }
+//give a random number to coordinates
 function getRandom (n, m) {
             var num = Math.floor(Math.random() * (m - n + 1) + n)
             return num
@@ -258,6 +259,7 @@ function getRandom (n, m) {
         for(var j=0;j<10;j++)
 {
     if(carstatus[j]=="booked"){
+        //during development, we didn't use object arrays, so we implement 10 times of the simulation code.
         if(j==0){
         var mmlat = mlat[j];
         var mmlng = mlng[j];
