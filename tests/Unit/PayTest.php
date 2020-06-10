@@ -13,8 +13,8 @@ class PayTest extends TestCase
     use WithFaker;
 
     protected $paymentProvider;
-    //    paypal payment
     /**
+     * Test using paypal to pay
      * @test
      */
     public function testPaypalPay(){
@@ -25,7 +25,7 @@ class PayTest extends TestCase
         $response->assertStatus(302);
     }
     /**
-     *
+     * Test get to payment success page.
      * @test
      */
     public function testPaymentSuccess(){
@@ -33,7 +33,7 @@ class PayTest extends TestCase
         $response->assertStatus(302);
     }
     /**
-     * A basic unit test example.
+     * Test can get car details in pay page.
      *
      * @return void
      */
@@ -45,7 +45,7 @@ class PayTest extends TestCase
         $this->assertTrue(true);
     }
 
-   
+
    protected function setUp() :void
     {
         $this->paymentProvider = $this->getMockBuilder(\PaymentProvider::class)

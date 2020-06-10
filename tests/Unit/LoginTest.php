@@ -16,7 +16,7 @@ class LoginTest extends TestCase
 //    private $id;
 
     /**
-     *
+     * Test can get log in page.
      * @test
      */
     public function testLoginPage(){
@@ -25,7 +25,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     * A basic unit test example.
+     * Test can create a new user successful.
      *
      * @return void
      */
@@ -48,7 +48,10 @@ class LoginTest extends TestCase
         return Auth::user();
     }
 
-    public function testUserCannotViewALoginPageWhenAuthenticated()
+    /**
+     * Test user will be directed to home page if no authentication.
+     */
+    public function testUserGetHomeWithoutAuthenticated()
     {
         $user = factory(User::class)->make();
 
@@ -57,6 +60,9 @@ class LoginTest extends TestCase
         $response->assertRedirect('/home');
     }
 
+    /**
+     * Test user can log in with correct email and password.
+     */
     public function testUserCanLoginWithCorrectCredentials()
     {
         $user = factory(User::class)->create([
@@ -72,6 +78,9 @@ class LoginTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
+    /**
+     * Test user cannot log in with wrong password.
+     */
     public function testUserCannotLoginWithIncorrectPassword()
     {
         $user = factory(User::class)->create([
@@ -90,6 +99,9 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
+    /**
+     * Test the functionality of "remember me" token.
+     */
     public function testRememberMeFunctionality()
     {
         $user = factory(User::class)->create([

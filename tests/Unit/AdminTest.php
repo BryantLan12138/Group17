@@ -8,7 +8,9 @@ use Tests\TestCase;
 
 class AdminTest extends TestCase
 {
-
+    /**
+     * Testing administrator log in.
+     */
     public function testAdminLogin()
     {
         $login = Auth::attempt(['email' => 'admin@carabc.com', 'password' => 'foobar']);
@@ -19,6 +21,7 @@ class AdminTest extends TestCase
     }
 
     /**
+     * Testing administrator log out.
      * @depends testAdminLogin
      */
     public function testAdminLogout(User $loggedUser)

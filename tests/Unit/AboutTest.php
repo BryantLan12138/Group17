@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class AboutTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * Testing whether can direct to about page or not.
      *
      * @return void
      */

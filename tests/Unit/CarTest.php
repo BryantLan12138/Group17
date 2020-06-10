@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class CarTest extends TestCase
 {   
     /**
-     * A basic unit test example.
+     * Test can get the car list data from database.
      *
      * @return void
      */
@@ -43,6 +43,10 @@ class CarTest extends TestCase
         $this->assertTrue($hasFord);
     }
 
+    /**
+     * Test can use car cache in database.
+     */
+
     public function testCarDetail()
     {
         $car = Car::find(1);
@@ -53,6 +57,8 @@ class CarTest extends TestCase
     }
 
     /**
+     * 
+     * Test show whether the car is booked or not, and the location of the car.
      * @depends testCarDetail
      *
      * @return void

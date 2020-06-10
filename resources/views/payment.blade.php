@@ -37,7 +37,7 @@
                         <div class="links">
                             <ul class="links">
 
-
+                                {{-- fetch car details --}}
                                 <img src="{{ asset('image/'.$cars -> image)}}" width="200px" height="auto" alt="{{$cars -> image}}">
                                 <span class="text-center" my-5>
                                     <br>
@@ -59,7 +59,7 @@
         </div>
     </div><br>
 
-
+    {{-- pass in user detail in database --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

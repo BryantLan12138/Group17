@@ -11,7 +11,7 @@ class UserTest extends TestCase
 {
 
     /**
-     * A basic unit test example.
+     * Test user can register an account with name, email and password.
      *
      * @return void
      */

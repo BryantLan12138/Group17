@@ -192,7 +192,7 @@
         
 
 
-        <!--Section: Contact v.2-->
+        <!--Section: Contact -->
         <section class="mb-4">
 
             <!--Section heading-->

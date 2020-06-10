@@ -49,9 +49,9 @@ class MapController extends Controller
             echo '<div class="alert alert-success">Data Updated</div>';
         }
     }
-    //map on the main page
+    //map on the root page
     public function map()
-    {
+    {   //define the size of the map
         $config['center'] = 'auto';
         $config['zoom'] = '13';
         $config['map_height'] = '500px';
@@ -59,10 +59,10 @@ class MapController extends Controller
         $config['scrollwheel'] = false;
         $config['geocodeCaching'] = true;
         
-
+        //Generate map with fahan's package with defined setting
         $gmap = new GMaps();
         $gmap->initialize($config);
-
+        
 
         //Add carpark marker on map,  fetch data from carpark table in database
         $dbcar= DB::table('cars');
@@ -100,7 +100,7 @@ class MapController extends Controller
         $gmap_new->initialize($config_new);
 
 
-        //Add carpark marker on map,  fetch data from carpark table in database
+        //fetch data from car table in database
         $dbcar_new= DB::table('cars');
         $dblocation= DB::table('gmaps_geocache');
         $data_new = $dbcar_new -> get();
@@ -120,7 +120,7 @@ class MapController extends Controller
          }
 
         $map_new = $gmap_new->create_map();
-
+        //show only the status == available 
         $car_lock = Car::find($carId);
         if($car_lock->status == 'available'){
             $car_lock->status = 'locked';

@@ -21,7 +21,7 @@
                                 </li>
                                 
                                 
-                            
+                            {{-- pass in the value of payment into the field to store into database --}}
                             <form action="{{ url('charge') }}" method="post" >
                             <input type="hidden" name="amount" value="<?php echo round(($cars->unit_price*($orders->minute/60)+$cars->unit_price*$orders->hour)*1.1,2) ?>" readonly>
                                 {{ csrf_field() }}

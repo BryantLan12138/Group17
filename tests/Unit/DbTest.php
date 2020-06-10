@@ -10,7 +10,7 @@ class DbTest extends TestCase
 {
     use RefreshDatabase;
     /**
-     * A basic test example.
+     * Test user information can store in database.
      *
      * @return void
      */

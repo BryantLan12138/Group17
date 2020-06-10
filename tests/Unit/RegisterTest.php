@@ -11,7 +11,7 @@ class RegisterTest extends TestCase
 {
     use WithFaker;
     /**
-     *
+     * Test can get to register page.
      * @test
      */
     public function testRegisterPage(){
@@ -20,7 +20,7 @@ class RegisterTest extends TestCase
     }
 
     /**
-     * A basic unit test example.
+     * Test a registered account can log in.
      *
      * @return void
      */
@@ -38,6 +38,10 @@ class RegisterTest extends TestCase
         $this->assertEquals($importantTask->id, $task->id);
     }
     
+
+    /**
+     * Test register a new user and authenticate it.
+     */
     public function testRegisterCreatesAndAuthenticatesAUser()
 {
     $name = $this->faker->name;

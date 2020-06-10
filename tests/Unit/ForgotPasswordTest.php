@@ -16,8 +16,8 @@ class ForgotPasswordTest extends TestCase
     const ROUTE_PASSWORD_RESET_SUBMIT = 'password.reset.submit';
 
     const USER_ORIGINAL_PASSWORD = 'secret';
-//    check if you get reset page
     /**
+     *  Test checking if you get reset page.
      * @test
      */
     public function testResetPage(){
@@ -25,8 +25,9 @@ class ForgotPasswordTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     /**
-     * A basic unit test example.
+     * Test can get send email page.
      *
      * @return void
      */
@@ -38,6 +39,9 @@ class ForgotPasswordTest extends TestCase
         $this->assertTrue(true);
     }
 
+    /**
+     * Test the correct display of password reset page.
+     */
     public function testShowPasswordResetRequestPage()
     {
         $this
@@ -48,6 +52,9 @@ class ForgotPasswordTest extends TestCase
             ->assertSee('Send Password Reset Link');
     }
 
+    /**
+     * Test using invalid email format to reset password.
+     */
     public function testSubmitPasswordResetRequestInvalidEmail()
     {
         $this
@@ -62,6 +69,9 @@ class ForgotPasswordTest extends TestCase
             ]));
     }
 
+    /**
+     * Test using the unknown email to reset password.
+     */
     public function testSubmitPasswordResetRequestEmailNotFound()
     {
         $this

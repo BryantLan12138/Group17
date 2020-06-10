@@ -13,7 +13,7 @@ class CarListTest extends TestCase
 {
     
     /**
-     * A basic unit test example.
+     * Test show the car list in database.
      *
      * @return void
      */

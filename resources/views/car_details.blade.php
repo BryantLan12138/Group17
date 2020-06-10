@@ -65,7 +65,7 @@
                     var onChangeHandler = function() {
                         calculateAndDisplayRoute(directionsService, directionsDisplay);
                     };
-
+                    // when user click 'direction' button, triggers the calculateDisplayRoute method
                     document.getElementById('Destination').addEventListener('click', onChangeHandler);
                     currentPos = pos.coords.latitude + "," + pos.coords.longitude;
                     //  {{session('location')}}= currentPos;
@@ -147,21 +147,7 @@
     }
 
 
-    //stop countdown when click 'confirm' button
-
-
-
-    // @if($cars -> status == 'available')
-    // document.getElementById('find').click();
-    // @endif
-
-
-    //start locating user's location without clicking any button
-
-    // function pauseTimer(){
-    //         clearInterval(timer)
-    //     }   
-
+   
 
     function stopTiming() {
         condition = true;
@@ -252,41 +238,10 @@
                         if (seconds < 10)
                             seconds = "0" + seconds;
                         document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
-                        // var duration = document.getElementById("timer").innerHTML;
-                        // // console.log(duration)
-                        // console.log(duration);
-                        // document.getElementById('duration').value = duration;
+                       
                         document.getElementById("hour").value = hour;
                         document.getElementById('minute').value = minute;
-                        // document.getElementById("hour").setAttribute("value", hour);
-                        // document.getElementById("mimute").setAttribute("value", minute);
-                        // $session('hour') = hour;
-                        // $session('minute') = minute;
-                    }
-                    //use ajax to pass js variable to php 
-
-                    // var url = {{$cars->id}};
-                    // $(document).ready(function(){
-                    //     $.ajaxSetup({
-                    //         headers: {
-                    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    //         }
-                    //         });
-                    //     $.ajax({
-                    //         type: "POST",
-                    //         url: './' + url +'/payment',  // I also tried index.php directly
-                    //         data: {
-                    //         _token : $('meta[name="csrf-token"]').attr('content'), 
-                    //         "duration": duration
-                    //         },
-                    //         success:(function(data){
-                    //             alert(data);
-                    //         })
-                    //         // error: function() {
-                    //         //     alert('Not OKay');
-                    //         // } 
-                    //     });
-                    // });
+                        
                 </script>
 
                 <form method="POST" action="{{ route('status_available',$cars->id) }}" enctype="multipart/form-data" class="float-right">

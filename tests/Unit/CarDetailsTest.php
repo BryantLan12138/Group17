@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class CarDetailsTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * Testing booking can get data of car details.
      *
      * @return void
      */
@@ -21,6 +21,7 @@ class CarDetailsTest extends TestCase
     }
 
     /**
+     * Testing can direct to booking cancel page.
      * @test
      */
     public function book_cancel_page(){
