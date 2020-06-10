@@ -46,7 +46,6 @@ Route::group(['middleware' => 'auth'], function()
     Route::post('/car_details/{cars}','MapController@statusBooked')->name('status_booked');
     Route::get('/car_details/cancel/{cars}','MapController@cancelStatus');
     Route::post('/car_details/cancel/{cars}','MapController@cancelBooking')->name('cancel_booking');
-    //Route::post('/paypal', 'ReportController@createReport')->name('user_report');
     Route::get('/booking_history','ReportController@bookingHistory');
     Route::get('/booking_history/{reports}','ReportController@generateReport');
     Route::get('/car_details/{cars}/payment', 'MapController@showRecipt');
